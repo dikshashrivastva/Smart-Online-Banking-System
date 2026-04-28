@@ -1,0 +1,143 @@
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\appsettings.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.staticwebassets.runtime.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.staticwebassets.endpoints.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.exe
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.deps.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.runtimeconfig.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.dll
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.pdb
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.Models.dll
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.Models.pdb
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.csproj.AssemblyReference.cache
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.AssemblyInfoInputs.cache
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.AssemblyInfo.cs
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.csproj.CoreCompileInputs.cache
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.RazorAssemblyInfo.cache
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.RazorAssemblyInfo.cs
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\scopedcss\bundle\SmartBank.MVC.styles.css
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\compressed\m39i3z4edg-{0}-57vig6b1iy-57vig6b1iy.gz
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\swae.build.ex.cache
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBan.4B8EBFB7.Up2Date
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.dll
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\refint\SmartBank.MVC.dll
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.pdb
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.genruntimeconfig.cache
+C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\ref\SmartBank.MVC.dll
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\appsettings.Development.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\appsettings.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.staticwebassets.runtime.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.staticwebassets.endpoints.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.exe
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.deps.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.runtimeconfig.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.dll
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.pdb
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.Models.dll
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.Models.pdb
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.csproj.AssemblyReference.cache
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.GeneratedMSBuildEditorConfig.editorconfig
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.AssemblyInfoInputs.cache
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.AssemblyInfo.cs
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.csproj.CoreCompileInputs.cache
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.MvcApplicationPartsAssemblyInfo.cache
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.RazorAssemblyInfo.cache
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.RazorAssemblyInfo.cs
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\scopedcss\bundle\SmartBank.MVC.styles.css
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\compressed\m39i3z4edg-{0}-57vig6b1iy-57vig6b1iy.gz
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.json.cache
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.development.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\swae.build.ex.cache
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBan.4B8EBFB7.Up2Date
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.dll
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\refint\SmartBank.MVC.dll
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.pdb
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.genruntimeconfig.cache
+D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\ref\SmartBank.MVC.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\appsettings.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.staticwebassets.runtime.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.staticwebassets.endpoints.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.exe
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.deps.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.runtimeconfig.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.pdb
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.Models.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\bin\Debug\net9.0\SmartBank.Models.pdb
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.csproj.AssemblyReference.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.AssemblyInfoInputs.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.AssemblyInfo.cs
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.csproj.CoreCompileInputs.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.RazorAssemblyInfo.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.RazorAssemblyInfo.cs
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\scopedcss\bundle\SmartBank.MVC.styles.css
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\compressed\jfkzhzbtza-57vig6b1iy.gz
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBan.4B8EBFB7.Up2Date
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\refint\SmartBank.MVC.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.pdb
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.genruntimeconfig.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\obj\Debug\net9.0\ref\SmartBank.MVC.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\refint\SmartBank.MVC.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.pdb
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.csproj.AssemblyReference.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\appsettings.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.staticwebassets.endpoints.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.staticwebassets.runtime.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.exe
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.deps.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.runtimeconfig.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\SmartBank.MVC.pdb
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\SmartBank.Models.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\bin\Debug\net9.0\SmartBank.Models.pdb
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.AssemblyInfoInputs.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.AssemblyInfo.cs
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.csproj.CoreCompileInputs.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.RazorAssemblyInfo.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.RazorAssemblyInfo.cs
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\scopedcss\bundle\SmartBank.MVC.styles.css
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\compressed\jfkzhzbtza-57vig6b1iy.gz
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBan.4B8EBFB7.Up2Date
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\SmartBank.MVC.genruntimeconfig.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.MVC\obj\Debug\net9.0\ref\SmartBank.MVC.dll

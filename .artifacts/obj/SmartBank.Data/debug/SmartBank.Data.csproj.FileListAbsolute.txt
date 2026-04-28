@@ -1,0 +1,15 @@
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\bin\SmartBank.Data\debug\SmartBank.Data.deps.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\bin\SmartBank.Data\debug\SmartBank.Data.runtimeconfig.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\bin\SmartBank.Data\debug\SmartBank.Data.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\bin\SmartBank.Data\debug\SmartBank.Data.pdb
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\SmartBank.Data.csproj.AssemblyReference.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\SmartBank.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\SmartBank.Data.AssemblyInfoInputs.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\SmartBank.Data.AssemblyInfo.cs
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\SmartBank.Data.csproj.CoreCompileInputs.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\SmartBan.FA1C47F6.Up2Date
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\SmartBank.Data.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\refint\SmartBank.Data.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\SmartBank.Data.pdb
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\SmartBank.Data.genruntimeconfig.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts\obj\SmartBank.Data\debug\ref\SmartBank.Data.dll

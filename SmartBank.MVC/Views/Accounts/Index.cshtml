@@ -1,0 +1,45 @@
+@model List<SmartBank.Models.DTOs.Customer.AccountDto>
+@{
+    ViewData["Title"] = "My Accounts";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h4 class="fw-bold text-primary mb-1">My Accounts</h4>
+        <p class="text-muted mb-0">Balances and account details</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary">Open Account</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No accounts found.</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Account Number</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th class="text-end">Balance</th>
+                    <th>Opened</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var account in Model)
+            {
+                <tr>
+                    <td class="fw-semibold">@account.AccountNumber</td>
+                    <td>@account.AccountType</td>
+                    <td>@account.Status</td>
+                    <td class="text-end">@account.Currency @account.Balance.ToString("N2")</td>
+                    <td>@account.OpenedAt?.ToString("dd MMM yyyy")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}

@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sargam\\Downloads\\SmartBank_Sprint1_FIXED\\SmartBank_Sprint1_FIXED\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{33333333-3333-3333-3333-333333333333}|SmartBank.API\\SmartBank.API.csproj|c:\\users\\sargam\\downloads\\smartbank_sprint1_fixed\\smartbank_sprint1_fixed\\smartbank.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{33333333-3333-3333-3333-333333333333}|SmartBank.API\\SmartBank.API.csproj|solutionrelative:smartbank.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\sargam\\Downloads\\SmartBank_Sprint1_FIXED\\SmartBank_Sprint1_FIXED\\SmartBank.API\\appsettings.json",
+              "RelativeDocumentMoniker": "SmartBank.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\sargam\\Downloads\\SmartBank_Sprint1_FIXED\\SmartBank_Sprint1_FIXED\\SmartBank.API\\appsettings.json",
+              "RelativeToolTip": "SmartBank.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-28T05:03:34.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

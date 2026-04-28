@@ -1,0 +1,11 @@
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\bin\SmartBank.Models\debug\SmartBank.Models.deps.json
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\bin\SmartBank.Models\debug\SmartBank.Models.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\bin\SmartBank.Models\debug\SmartBank.Models.pdb
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\obj\SmartBank.Models\debug\SmartBank.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\obj\SmartBank.Models\debug\SmartBank.Models.AssemblyInfoInputs.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\obj\SmartBank.Models\debug\SmartBank.Models.AssemblyInfo.cs
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\obj\SmartBank.Models\debug\SmartBank.Models.csproj.CoreCompileInputs.cache
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\obj\SmartBank.Models\debug\SmartBank.Models.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\obj\SmartBank.Models\debug\refint\SmartBank.Models.dll
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\obj\SmartBank.Models\debug\SmartBank.Models.pdb
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\.artifacts-adminfix\obj\SmartBank.Models\debug\ref\SmartBank.Models.dll

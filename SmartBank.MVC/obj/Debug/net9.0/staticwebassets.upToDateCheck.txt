@@ -1,0 +1,2 @@
+C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.MVC\wwwroot\css\smartbank.css
+wwwroot\css\smartbank.css
