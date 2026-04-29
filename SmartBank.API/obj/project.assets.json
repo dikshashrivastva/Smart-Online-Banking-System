@@ -5131,23 +5131,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {},
+    "C:\\Users\\Harsh Rana\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\SmartBankSystem\\SmartBank.API\\SmartBank.API.csproj",
+      "projectUniqueName": "D:\\project\\SmartBankSystem\\SmartBank.API\\SmartBank.API.csproj",
       "projectName": "SmartBank.API",
-      "projectPath": "C:\\Users\\DELL\\Desktop\\SmartBankSystem\\SmartBank.API\\SmartBank.API.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Desktop\\SmartBankSystem\\SmartBank.API\\obj\\",
+      "projectPath": "D:\\project\\SmartBankSystem\\SmartBank.API\\SmartBank.API.csproj",
+      "packagesPath": "C:\\Users\\Harsh Rana\\.nuget\\packages\\",
+      "outputPath": "D:\\project\\SmartBankSystem\\SmartBank.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Harsh Rana\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5162,11 +5162,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\DELL\\Desktop\\SmartBankSystem\\SmartBank.Data\\SmartBank.Data.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Desktop\\SmartBankSystem\\SmartBank.Data\\SmartBank.Data.csproj"
+            "D:\\project\\SmartBankSystem\\SmartBank.Data\\SmartBank.Data.csproj": {
+              "projectPath": "D:\\project\\SmartBankSystem\\SmartBank.Data\\SmartBank.Data.csproj"
             },
-            "C:\\Users\\DELL\\Desktop\\SmartBankSystem\\SmartBank.Models\\SmartBank.Models.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Desktop\\SmartBankSystem\\SmartBank.Models\\SmartBank.Models.csproj"
+            "D:\\project\\SmartBankSystem\\SmartBank.Models\\SmartBank.Models.csproj": {
+              "projectPath": "D:\\project\\SmartBankSystem\\SmartBank.Models\\SmartBank.Models.csproj"
             }
           }
         }
@@ -5181,7 +5181,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -5231,19 +5231,19 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[9.0.14, 9.0.14]"
+            "version": "[9.0.11, 9.0.11]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[9.0.14, 9.0.14]"
+            "version": "[9.0.11, 9.0.11]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[9.0.14, 9.0.14]"
+            "version": "[9.0.11, 9.0.11]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[9.0.14, 9.0.14]"
+            "version": "[9.0.11, 9.0.11]"
           }
         ],
         "frameworkReferences": {
@@ -5254,7 +5254,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

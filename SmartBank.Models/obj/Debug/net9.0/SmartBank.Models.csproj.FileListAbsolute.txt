@@ -1,56 +1,12 @@
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.deps.json
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.dll
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.pdb
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfoInputs.cache
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfo.cs
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.csproj.CoreCompileInputs.cache
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.dll
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\refint\SmartBank.Models.dll
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.pdb
-C:\Users\dell\Downloads\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\ref\SmartBank.Models.dll
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.deps.json
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.dll
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.pdb
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.GeneratedMSBuildEditorConfig.editorconfig
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfoInputs.cache
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfo.cs
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.csproj.CoreCompileInputs.cache
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.dll
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\refint\SmartBank.Models.dll
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.pdb
-D:\Notes\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\ref\SmartBank.Models.dll
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.deps.json
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.dll
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.pdb
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfoInputs.cache
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfo.cs
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.csproj.CoreCompileInputs.cache
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.dll
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\refint\SmartBank.Models.dll
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.pdb
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED\SmartBank.Models\obj\Debug\net9.0\ref\SmartBank.Models.dll
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.deps.json
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.dll
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.pdb
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfoInputs.cache
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfo.cs
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.csproj.CoreCompileInputs.cache
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.dll
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\obj\Debug\net9.0\refint\SmartBank.Models.dll
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.pdb
-C:\Users\sargam\Downloads\SmartBank_Sprint1_FIXED\SmartBank_Sprint1_FIXED - Copy\SmartBank.Models\obj\Debug\net9.0\ref\SmartBank.Models.dll
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.deps.json
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.dll
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.pdb
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfoInputs.cache
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfo.cs
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.csproj.CoreCompileInputs.cache
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.sourcelink.json
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.dll
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\refint\SmartBank.Models.dll
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.pdb
-C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\ref\SmartBank.Models.dll
+D:\project\SmartBankSystem\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.deps.json
+D:\project\SmartBankSystem\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.dll
+D:\project\SmartBankSystem\SmartBank.Models\bin\Debug\net9.0\SmartBank.Models.pdb
+D:\project\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\project\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfoInputs.cache
+D:\project\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.AssemblyInfo.cs
+D:\project\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.csproj.CoreCompileInputs.cache
+D:\project\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.sourcelink.json
+D:\project\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.dll
+D:\project\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\refint\SmartBank.Models.dll
+D:\project\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\SmartBank.Models.pdb
+D:\project\SmartBankSystem\SmartBank.Models\obj\Debug\net9.0\ref\SmartBank.Models.dll

@@ -11,73 +11,73 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SmartBank.MVC
 build_property.RootNamespace = SmartBank.MVC
-build_property.ProjectDir = C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.MVC\
+build_property.ProjectDir = D:\project\SmartBankSystem\SmartBank.MVC\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.MVC
+build_property.MSBuildProjectDirectory = D:\project\SmartBankSystem\SmartBank.MVC
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Accounts/Create.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Accounts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Accounts/Index.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Accounts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Auth/Login.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Auth/Register.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Auth/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Dashboard/Index.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Profile/Index.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Profile/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Shared/_Layout.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Transactions/Deposit.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Transactions/Deposit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXERlcG9zaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Transactions/History.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Transactions/History.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXEhpc3RvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Transactions/Receipt.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Transactions/Receipt.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXFJlY2VpcHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Transactions/Transfer.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Transactions/Transfer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXFRyYW5zZmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/Transactions/Withdraw.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/Transactions/Withdraw.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXFdpdGhkcmF3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/_ViewImports.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/SmartBankSystem/SmartBank.MVC/Views/_ViewStart.cshtml]
+[D:/project/SmartBankSystem/SmartBank.MVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
