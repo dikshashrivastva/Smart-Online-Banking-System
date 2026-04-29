@@ -1,0 +1,101 @@
+@model SmartBank.Models.DTOs.Transactions.TransactionHistoryViewModel
+@{
+    ViewData["Title"] = "Transaction History";
+    var totalPages = Math.Max(1, Model.Results.TotalPages);
+}
+
+<section class="section-heading mt-0">
+    <div>
+        <p class="eyebrow mb-1">Ledger</p>
+        <h2>Transaction history</h2>
+        <p>Filter posted activity and export statements as CSV.</p>
+    </div>
+    <div class="d-flex flex-wrap gap-2">
+        <a asp-action="Deposit" class="btn btn-primary"><i class="bi bi-plus-circle me-2"></i>Deposit</a>
+        <a asp-action="Withdraw" class="btn btn-outline-primary"><i class="bi bi-cash-coin me-2"></i>Withdraw</a>
+        <a asp-action="Transfer" class="btn btn-outline-primary"><i class="bi bi-send me-2"></i>Transfer</a>
+    </div>
+</section>
+
+<section class="data-card mb-3">
+    <form method="get" class="row g-3 align-items-end">
+        <div class="col-md-3">
+            <label asp-for="AccountId" class="form-label">Account</label>
+            <select asp-for="AccountId" class="form-select">
+                @foreach (var account in Model.Accounts)
+                {
+                    <option value="@account.AccountId">@account.AccountNumber</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label asp-for="From" class="form-label">From</label>
+            <input asp-for="From" class="form-control" type="date" />
+        </div>
+        <div class="col-md-2">
+            <label asp-for="To" class="form-label">To</label>
+            <input asp-for="To" class="form-control" type="date" />
+        </div>
+        <div class="col-md-2">
+            <label asp-for="Type" class="form-label">Type</label>
+            <select asp-for="Type" class="form-select">
+                <option value="">All</option>
+                <option>Deposit</option>
+                <option>Withdraw</option>
+                <option>Transfer</option>
+            </select>
+        </div>
+        <div class="col-md-3 d-flex gap-2">
+            <button class="btn btn-primary flex-fill" type="submit"><i class="bi bi-funnel me-2"></i>Apply</button>
+            <a class="btn btn-outline-primary flex-fill" asp-action="Statement" asp-route-accountId="@Model.AccountId" asp-route-from="@Model.From?.ToString("yyyy-MM-dd")" asp-route-to="@Model.To?.ToString("yyyy-MM-dd")">
+                <i class="bi bi-download me-2"></i>Statement
+            </a>
+        </div>
+    </form>
+</section>
+
+<section class="table-shell">
+    <div class="table-responsive">
+        <table class="table smart-table align-middle">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Reference</th>
+                    <th>Type</th>
+                    <th class="text-end">Amount</th>
+                    <th class="text-end">Balance</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var transaction in Model.Results.Items)
+            {
+                <tr>
+                    <td>@transaction.CreatedAt.ToString("dd MMM yyyy HH:mm")</td>
+                    <td class="fw-bold">@transaction.ReferenceNumber</td>
+                    <td>@transaction.Type</td>
+                    <td class="text-end">@transaction.Amount.ToString("N2")</td>
+                    <td class="text-end">@transaction.BalanceAfter.ToString("N2")</td>
+                    <td><span class="status-pill">@transaction.Status</span></td>
+                    <td class="text-end">
+                        <a asp-action="Receipt" asp-route-id="@transaction.Id" class="btn btn-sm btn-outline-primary">Receipt</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<nav class="mt-3" aria-label="Transaction pages">
+    <ul class="pagination">
+        <li class="page-item @(Model.Page <= 1 ? "disabled" : "")">
+            <a class="page-link" asp-action="History" asp-route-accountId="@Model.AccountId" asp-route-page="@(Model.Page - 1)" asp-route-size="@Model.Size" asp-route-from="@Model.From?.ToString("yyyy-MM-dd")" asp-route-to="@Model.To?.ToString("yyyy-MM-dd")" asp-route-type="@Model.Type">Previous</a>
+        </li>
+        <li class="page-item disabled"><span class="page-link">Page @Model.Page of @totalPages</span></li>
+        <li class="page-item @(Model.Page >= totalPages ? "disabled" : "")">
+            <a class="page-link" asp-action="History" asp-route-accountId="@Model.AccountId" asp-route-page="@(Model.Page + 1)" asp-route-size="@Model.Size" asp-route-from="@Model.From?.ToString("yyyy-MM-dd")" asp-route-to="@Model.To?.ToString("yyyy-MM-dd")" asp-route-type="@Model.Type">Next</a>
+        </li>
+    </ul>
+</nav>

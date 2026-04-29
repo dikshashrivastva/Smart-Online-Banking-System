@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -6,6 +7,7 @@ using SmartBank.API.Helpers;
 using SmartBank.API.Middleware;
 using SmartBank.API.Services;
 using SmartBank.API.Services.Interfaces;
+using SmartBank.API.Validators;
 using SmartBank.Data.Context;
 using SmartBank.Data.Repositories;
 using System.Text;
@@ -19,9 +21,12 @@ builder.Services.AddDbContext<SmartOnlineBankingDbContext>(options =>
 // ─── Repositories & Services ──────────────────────────────────────────────────
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddScoped<IAuthService,    AuthService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddSingleton<JwtHelper>();
+builder.Services.AddValidatorsFromAssemblyContaining<DepositRequestDtoValidator>();
 
 // ─── JWT Authentication ───────────────────────────────────────────────────────
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
@@ -122,6 +127,7 @@ if (app.Environment.IsDevelopment())
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<SmartOnlineBankingDbContext>();
     db.Database.EnsureCreated(); // Uses existing SQL-created DB schema
+    await TransactionSchemaInitializer.EnsureTransactionSchemaAsync(db);
 }
 
 app.Run();

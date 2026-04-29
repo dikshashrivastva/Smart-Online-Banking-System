@@ -33,6 +33,8 @@ public partial class Account
 
     public DateTime? UpdatedAt { get; set; }
 
+    public byte[]? RowVersion { get; set; }
+
     public virtual ICollection<Loan> Loans { get; set; } = new List<Loan>();
 
     public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();

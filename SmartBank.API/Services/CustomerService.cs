@@ -1,6 +1,7 @@
 using SmartBank.API.Services.Interfaces;
 using SmartBank.Data.Repositories;
 using SmartBank.Models.DTOs.Customer;
+using SmartBank.Models.DTOs.Transactions;
 using SmartBank.Models.Entities;
 
 namespace SmartBank.API.Services;
@@ -41,6 +42,23 @@ public class CustomerService : ICustomerService
 
     public async Task<List<AccountDto>> GetAccountsAsync(int userId)
         => (await _repo.GetAccountsAsync(userId)).Select(MapAccount).ToList();
+
+    public async Task<ToAccountLookupDto?> LookupAccountAsync(string accountNumber)
+    {
+        if (string.IsNullOrWhiteSpace(accountNumber))
+            return null;
+
+        var account = await _repo.GetAccountByNumberAsync(accountNumber.Trim());
+        if (account is null || !string.Equals(account.Status, "Active", StringComparison.OrdinalIgnoreCase))
+            return null;
+
+        return new ToAccountLookupDto
+        {
+            AccountId = account.AccountId,
+            AccountNumber = account.AccountNumber,
+            AccountHolderName = $"{account.User.FirstName} {account.User.LastName}".Trim()
+        };
+    }
 
     public async Task<AccountDto> CreateAccountAsync(int userId, CreateAccountRequestDto request)
     {

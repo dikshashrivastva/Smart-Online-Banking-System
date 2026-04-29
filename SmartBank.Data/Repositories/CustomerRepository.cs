@@ -30,6 +30,12 @@ public class CustomerRepository : ICustomerRepository
             .OrderByDescending(a => a.OpenedAt)
             .ToListAsync();
 
+    public async Task<Account?> GetAccountByNumberAsync(string accountNumber)
+        => await _context.Accounts
+            .AsNoTracking()
+            .Include(a => a.User)
+            .FirstOrDefaultAsync(a => a.AccountNumber == accountNumber);
+
     public async Task<bool> AccountNumberExistsAsync(string accountNumber)
         => await _context.Accounts.AnyAsync(a => a.AccountNumber == accountNumber);
 

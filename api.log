@@ -1,0 +1,79 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (82ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      
+      IF EXISTS
+          (SELECT *
+           FROM [sys].[objects] o
+           WHERE [o].[type] = 'U'
+           AND [o].[is_ms_shipped] = 0
+           AND NOT EXISTS (SELECT *
+               FROM [sys].[extended_properties] AS [ep]
+               WHERE [ep].[major_id] = [o].[object_id]
+                   AND [ep].[minor_id] = 0
+                   AND [ep].[class] = 1
+                   AND [ep].[name] = N'microsoft_database_tools_support'
+          )
+      )
+      SELECT 1 ELSE SELECT 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (45ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      IF COL_LENGTH('Accounts', 'RowVersion') IS NULL
+    ALTER TABLE Accounts ADD RowVersion rowversion NOT NULL;
+
+IF COL_LENGTH('Transactions', 'BalanceBefore') IS NULL
+    ALTER TABLE Transactions ADD BalanceBefore decimal(18,2) NOT NULL CONSTRAINT DF_Transactions_BalanceBefore DEFAULT 0;
+
+IF COL_LENGTH('Transactions', 'IPAddress') IS NULL
+    ALTER TABLE Transactions ADD IPAddress nvarchar(50) NULL;
+
+IF COL_LENGTH('Transactions', 'DeviceInfo') IS NULL
+    ALTER TABLE Transactions ADD DeviceInfo nvarchar(500) NULL;
+
+IF COL_LENGTH('Transfers', 'Fee') IS NULL
+    ALTER TABLE Transfers ADD Fee decimal(18,2) NOT NULL CONSTRAINT DF_Transfers_Fee DEFAULT 0;
+
+IF COL_LENGTH('Transfers', 'IdempotencyKey') IS NULL
+    ALTER TABLE Transfers ADD IdempotencyKey nvarchar(100) NULL;
+
+IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_Transfers_IdempotencyKey' AND object_id = OBJECT_ID('Transfers'))
+    EXEC('CREATE UNIQUE INDEX IX_Transfers_IdempotencyKey ON Transfers(IdempotencyKey) WHERE IdempotencyKey IS NOT NULL');
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://localhost:7201
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5201
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\DELL\Desktop\SmartBankSystem\SmartBank.API
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (59ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [a].[AccountId], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[BranchCode], [a].[ClosedAt], [a].[Currency], [a].[IFSCCode], [a].[InterestRate], [a].[MinimumBalance], [a].[OpenedAt], [a].[RowVersion], [a].[Status], [a].[UpdatedAt], [a].[UserId]
+      FROM [Accounts] AS [a]
+      WHERE [a].[UserId] = @__userId_0
+      ORDER BY [a].[OpenedAt] DESC
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (15ms) [Parameters=[p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[AccountId], [s].[AccountNumber], [s].[AccountType], [s].[Balance], [s].[BranchCode], [s].[ClosedAt], [s].[Currency], [s].[IFSCCode], [s].[InterestRate], [s].[MinimumBalance], [s].[OpenedAt], [s].[RowVersion], [s].[Status], [s].[UpdatedAt], [s].[UserId], [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM (
+          SELECT * FROM Accounts WITH (UPDLOCK, ROWLOCK) WHERE AccountId = @p0
+      ) AS [s]
+      INNER JOIN [Users] AS [u] ON [s].[UserId] = [u].[UserId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (12ms) [Parameters=[@__accountId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Transactions] AS [t]
+      WHERE [t].[AccountId] = @__accountId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__accountId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[TransactionId], [t].[AccountId], [t].[Amount], [t].[BalanceAfter], [t].[BalanceBefore], [t].[Channel], [t].[CreatedAt], [t].[Description], [t].[DeviceInfo], [t].[IPAddress], [t].[PerformedByUserId], [t].[ReferenceNumber], [t].[Status], [t].[TransactionType], [t].[TransferId]
+      FROM [Transactions] AS [t]
+      WHERE [t].[AccountId] = @__accountId_0
+      ORDER BY [t].[CreatedAt] DESC
+      OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY

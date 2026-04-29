@@ -13,6 +13,8 @@ public partial class Transfer
 
     public decimal Amount { get; set; }
 
+    public decimal Fee { get; set; }
+
     public string? Remarks { get; set; }
 
     public string? ReferenceNumber { get; set; }
@@ -24,6 +26,8 @@ public partial class Transfer
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? CompletedAt { get; set; }
+
+    public string? IdempotencyKey { get; set; }
 
     public virtual Account FromAccount { get; set; } = null!;
 

@@ -22,6 +22,15 @@ public class AccountsController : ControllerBase
     public async Task<IActionResult> Get()
         => Ok(await _customerService.GetAccountsAsync(GetUserId()));
 
+    [HttpGet("lookup")]
+    public async Task<IActionResult> Lookup([FromQuery] string accountNumber)
+    {
+        var account = await _customerService.LookupAccountAsync(accountNumber);
+        return account is null
+            ? NotFound(new { success = false, message = "Account not found.", data = (object?)null })
+            : Ok(new { success = true, message = "Account found.", data = account });
+    }
+
     [HttpPost("create")]
     public async Task<IActionResult> Create(CreateAccountRequestDto request)
     {

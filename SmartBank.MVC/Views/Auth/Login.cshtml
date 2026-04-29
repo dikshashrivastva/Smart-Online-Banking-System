@@ -1,48 +1,65 @@
 @model SmartBank.Models.DTOs.Auth.LoginRequestDto
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Sign In";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row justify-content-center mt-4">
-    <div class="col-md-5">
-        <div class="card shadow-sm border-0">
-            <div class="card-body p-4">
-                <h4 class="card-title mb-1 fw-bold text-primary">Welcome Back</h4>
-                <p class="text-muted mb-4">Sign in to your SmartBank account</p>
-
-                <form asp-action="Login" asp-controller="Auth" method="post">
-                    @Html.AntiForgeryToken()
-                    <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
-
-                    <div asp-validation-summary="All" class="alert alert-danger py-2" style="display:@(ViewData.ModelState.ErrorCount > 0 ? "block" : "none")"></div>
-
-                    <div class="mb-3">
-                        <label asp-for="Email" class="form-label fw-semibold">Email Address</label>
-                        <input asp-for="Email" class="form-control" placeholder="you@example.com" autocomplete="email" />
-                        <span asp-validation-for="Email" class="text-danger small"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label asp-for="Password" class="form-label fw-semibold">Password</label>
-                        <input asp-for="Password" type="password" class="form-control" placeholder="••••••••" autocomplete="current-password" />
-                        <span asp-validation-for="Password" class="text-danger small"></span>
-                    </div>
-
-                    <div class="d-grid mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg fw-bold">Sign In</button>
-                    </div>
-                </form>
-
-                <hr class="my-3" />
-                <p class="text-center mb-0 text-muted small">
-                    Don't have an account?
-                    <a asp-controller="Auth" asp-action="Register" class="text-primary fw-semibold">Register here</a>
-                </p>
+<section class="auth-grid">
+    <div class="auth-showcase">
+        <p class="eyebrow mb-2">Pheonix digital banking</p>
+        <h2>Rise above ordinary banking.</h2>
+        <p>Pheonix Bank brings profile management and account opening into a warm, secure, dashboard-first banking workspace.</p>
+        <div class="auth-stat-row">
+            <div class="auth-stat">
+                <strong>24/7</strong>
+                <span>Digital access</span>
+            </div>
+            <div class="auth-stat">
+                <strong>JWT</strong>
+                <span>Secure session</span>
+            </div>
+            <div class="auth-stat">
+                <strong>2</strong>
+                <span>Account types</span>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="auth-panel">
+        <span class="auth-badge"><i class="bi bi-shield-lock"></i></span>
+        <h2>Welcome Back</h2>
+        <p class="mb-4">Sign in to your Pheonix Bank account.</p>
+
+        <form asp-action="Login" asp-controller="Auth" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+
+            <div asp-validation-summary="All" class="alert alert-danger py-2" style="display:@(ViewData.ModelState.ErrorCount > 0 ? "block" : "none")"></div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email Address</label>
+                <input asp-for="Email" class="form-control" placeholder="you@example.com" autocomplete="email" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">Password</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" autocomplete="current-password" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+            </div>
+        </form>
+
+        <hr class="my-4" />
+        <p class="text-center mb-0 text-muted small">
+            Don't have an account?
+            <a asp-controller="Auth" asp-action="Register" class="text-primary fw-bold">Create one</a>
+        </p>
+    </div>
+</section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

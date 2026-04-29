@@ -82,6 +82,9 @@ public partial class SmartOnlineBankingDbContext : DbContext
                 .HasDefaultValue(500m)
                 .HasColumnType("decimal(18, 2)");
             entity.Property(e => e.OpenedAt).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.RowVersion)
+                .IsRowVersion()
+                .IsConcurrencyToken();
             entity.Property(e => e.Status)
                 .HasMaxLength(20)
                 .HasDefaultValue("Active");
@@ -263,9 +266,14 @@ public partial class SmartOnlineBankingDbContext : DbContext
 
             entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.BalanceAfter).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.BalanceBefore).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.Channel).HasMaxLength(20);
             entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.DeviceInfo).HasMaxLength(500);
             entity.Property(e => e.Description).HasMaxLength(500);
+            entity.Property(e => e.Ipaddress)
+                .HasMaxLength(50)
+                .HasColumnName("IPAddress");
             entity.Property(e => e.ReferenceNumber).HasMaxLength(50);
             entity.Property(e => e.Status).HasMaxLength(20);
             entity.Property(e => e.TransactionType).HasMaxLength(20);
@@ -296,8 +304,14 @@ public partial class SmartOnlineBankingDbContext : DbContext
 
             entity.HasIndex(e => e.ReferenceNumber, "UQ__Transfer__C5ADBE4D4A6DCC9D").IsUnique();
 
+            entity.HasIndex(e => e.IdempotencyKey, "IX_Transfers_IdempotencyKey")
+                .IsUnique()
+                .HasFilter("([IdempotencyKey] IS NOT NULL)");
+
             entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+            entity.Property(e => e.Fee).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.IdempotencyKey).HasMaxLength(100);
             entity.Property(e => e.ReferenceNumber).HasMaxLength(50);
             entity.Property(e => e.Remarks).HasMaxLength(500);
             entity.Property(e => e.Status).HasMaxLength(20);

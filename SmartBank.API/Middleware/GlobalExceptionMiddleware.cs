@@ -34,9 +34,11 @@ public class GlobalExceptionMiddleware
 
         var response = new
         {
-            Success = false,
-            Message = "An unexpected error occurred. Please try again later.",
-            Detail  = ex.Message   // Remove in production
+            success = false,
+            message = ex is InvalidOperationException or ArgumentException or UnauthorizedAccessException
+                ? ex.Message
+                : "An unexpected error occurred. Please try again later.",
+            data = (object?)null
         };
 
         return context.Response.WriteAsync(JsonSerializer.Serialize(response));

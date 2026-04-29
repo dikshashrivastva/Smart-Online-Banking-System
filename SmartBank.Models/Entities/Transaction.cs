@@ -17,6 +17,8 @@ public partial class Transaction
 
     public decimal Amount { get; set; }
 
+    public decimal BalanceBefore { get; set; }
+
     public decimal BalanceAfter { get; set; }
 
     public string? Description { get; set; }
@@ -28,6 +30,10 @@ public partial class Transaction
     public string? Status { get; set; }
 
     public DateTime? CreatedAt { get; set; }
+
+    public string? Ipaddress { get; set; }
+
+    public string? DeviceInfo { get; set; }
 
     public virtual Account Account { get; set; } = null!;
 

@@ -2,35 +2,79 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<div class="row mt-4">
-    <div class="col-12">
-        <div class="alert alert-success">
-            <h4 class="alert-heading">Sprint 1 &amp; 2 Ready</h4>
-            <p>You are logged in successfully. JWT token is stored in your browser cookie.</p>
+<section class="hero-panel">
+    <div>
+        <p class="eyebrow mb-2">Account overview</p>
+        <h2>Banking with a little more firepower.</h2>
+        <p>Manage your profile, open accounts, and keep your Pheonix Bank workspace ready for everyday digital banking.</p>
+        <div class="hero-actions">
+            <a asp-controller="Accounts" asp-action="Index" class="btn btn-light">
+                <i class="bi bi-wallet2 me-2"></i>View Accounts
+            </a>
+            <a asp-controller="Accounts" asp-action="Create" class="btn btn-outline-light">
+                <i class="bi bi-plus-circle me-2"></i>Open Account
+            </a>
         </div>
     </div>
-</div>
+    <div class="balance-card">
+        <span class="label">Secure access</span>
+        <div class="amount">Active</div>
+        <p class="mb-0">Your session is protected with a signed JWT token stored in an HTTP-only browser cookie.</p>
+        <div class="card-chip"></div>
+    </div>
+</section>
 
-<div class="row g-3 mt-2">
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm text-center p-3">
-            <h6 class="mt-2 fw-bold">Authentication</h6>
-            <p class="text-muted small">JWT secured login complete</p>
-            <span class="badge bg-success">Done</span>
+<section class="metric-grid">
+    <div class="metric-card">
+        <span class="metric-icon teal"><i class="bi bi-shield-lock"></i></span>
+        <div>
+            <span>Authentication</span>
+            <strong>JWT Enabled</strong>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm text-center p-3">
-            <h6 class="mt-2 fw-bold">Customer Profile</h6>
-            <p class="text-muted small">View and edit profile details</p>
-            <a asp-controller="Profile" asp-action="Index" class="btn btn-outline-primary btn-sm">My Profile</a>
+    <div class="metric-card">
+        <span class="metric-icon"><i class="bi bi-person-check"></i></span>
+        <div>
+            <span>Customer Profile</span>
+            <strong>Ready to edit</strong>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm text-center p-3">
-            <h6 class="mt-2 fw-bold">Accounts</h6>
-            <p class="text-muted small">List accounts and open a new account</p>
-            <a asp-controller="Accounts" asp-action="Index" class="btn btn-outline-primary btn-sm">My Accounts</a>
+    <div class="metric-card">
+        <span class="metric-icon coral"><i class="bi bi-bank"></i></span>
+        <div>
+            <span>Accounts</span>
+            <strong>Savings or Current</strong>
         </div>
     </div>
-</div>
+</section>
+
+<section class="section-heading">
+    <div>
+        <h2>Quick Actions</h2>
+        <p>Jump into the main banking workflows.</p>
+    </div>
+</section>
+
+<section class="quick-grid">
+    <a asp-controller="Profile" asp-action="Index" class="quick-card">
+        <i class="bi bi-person-lines-fill"></i>
+        <div>
+            <h3>Complete Profile</h3>
+            <p>Keep personal details and KYC information up to date.</p>
+        </div>
+    </a>
+    <a asp-controller="Accounts" asp-action="Index" class="quick-card">
+        <i class="bi bi-credit-card-2-front"></i>
+        <div>
+            <h3>Review Accounts</h3>
+            <p>See account numbers, statuses, balances, and opening dates.</p>
+        </div>
+    </a>
+    <a asp-controller="Accounts" asp-action="Create" class="quick-card">
+        <i class="bi bi-piggy-bank"></i>
+        <div>
+            <h3>Open New Account</h3>
+            <p>Create a savings or current account with an initial deposit.</p>
+        </div>
+    </a>
+</section>

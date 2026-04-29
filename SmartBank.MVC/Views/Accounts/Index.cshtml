@@ -1,45 +1,101 @@
 @model List<SmartBank.Models.DTOs.Customer.AccountDto>
 @{
     ViewData["Title"] = "My Accounts";
+    var totalBalance = Model.Sum(account => account.Balance);
+    var primaryCurrency = Model.FirstOrDefault()?.Currency ?? "INR";
 }
 
-<div class="d-flex justify-content-between align-items-center mb-3">
+<section class="section-heading mt-0">
     <div>
-        <h4 class="fw-bold text-primary mb-1">My Accounts</h4>
-        <p class="text-muted mb-0">Balances and account details</p>
+        <p class="eyebrow mb-1">Portfolio</p>
+        <h2>Your Pheonix Bank accounts</h2>
+        <p>Balances, account status, and opening information in one place.</p>
     </div>
-    <a asp-action="Create" class="btn btn-primary">Open Account</a>
-</div>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle me-2"></i>Open Account
+    </a>
+</section>
 
 @if (!Model.Any())
 {
-    <div class="alert alert-info">No accounts found.</div>
+    <div class="empty-state">
+        <div>
+            <i class="bi bi-wallet2"></i>
+            <h3 class="h5 fw-bold mt-3">No accounts yet</h3>
+            <p class="text-muted mb-4">Open your first savings or current account to start using Pheonix Bank.</p>
+            <a asp-action="Create" class="btn btn-primary">Open Account</a>
+        </div>
+    </div>
 }
 else
 {
-    <div class="table-responsive">
-        <table class="table table-striped align-middle">
-            <thead>
-                <tr>
-                    <th>Account Number</th>
-                    <th>Type</th>
-                    <th>Status</th>
-                    <th class="text-end">Balance</th>
-                    <th>Opened</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach (var account in Model)
-            {
-                <tr>
-                    <td class="fw-semibold">@account.AccountNumber</td>
-                    <td>@account.AccountType</td>
-                    <td>@account.Status</td>
-                    <td class="text-end">@account.Currency @account.Balance.ToString("N2")</td>
-                    <td>@account.OpenedAt?.ToString("dd MMM yyyy")</td>
-                </tr>
-            }
-            </tbody>
-        </table>
+    <section class="metric-grid mb-3">
+        <div class="metric-card">
+            <span class="metric-icon teal"><i class="bi bi-cash-stack"></i></span>
+            <div>
+                <span>Total Balance</span>
+                <strong>@primaryCurrency @totalBalance.ToString("N2")</strong>
+            </div>
+        </div>
+        <div class="metric-card">
+            <span class="metric-icon"><i class="bi bi-layers"></i></span>
+            <div>
+                <span>Accounts</span>
+                <strong>@Model.Count active records</strong>
+            </div>
+        </div>
+        <div class="metric-card">
+            <span class="metric-icon coral"><i class="bi bi-graph-up-arrow"></i></span>
+            <div>
+                <span>Banking Status</span>
+                <strong>Operational</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="account-grid mb-4">
+        @foreach (var account in Model.Take(3))
+        {
+            <article class="account-card">
+                <div class="account-card-header">
+                    <span class="status-pill">@account.Status</span>
+                    <h3>@account.AccountType Account</h3>
+                    <span class="account-number">@account.AccountNumber</span>
+                </div>
+                <div class="account-card-body">
+                    <span class="mini-label">Available balance</span>
+                    <strong class="account-balance">@account.Currency @account.Balance.ToString("N2")</strong>
+                    <p class="text-muted small mb-0 mt-3">Opened @account.OpenedAt?.ToString("dd MMM yyyy")</p>
+                </div>
+            </article>
+        }
+    </section>
+
+    <div class="table-shell">
+        <div class="table-responsive">
+            <table class="table smart-table align-middle">
+                <thead>
+                    <tr>
+                        <th>Account Number</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th class="text-end">Balance</th>
+                        <th>Opened</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var account in Model)
+                {
+                    <tr>
+                        <td class="fw-bold">@account.AccountNumber</td>
+                        <td>@account.AccountType</td>
+                        <td><span class="status-pill">@account.Status</span></td>
+                        <td class="text-end fw-bold">@account.Currency @account.Balance.ToString("N2")</td>
+                        <td>@account.OpenedAt?.ToString("dd MMM yyyy")</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
     </div>
 }
