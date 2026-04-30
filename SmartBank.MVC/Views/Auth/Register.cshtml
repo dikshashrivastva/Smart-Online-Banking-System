@@ -1,0 +1,121 @@
+@model SmartBank.Models.DTOs.Auth.RegisterRequestDto
+@{
+    ViewData["Title"] = "Create Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="auth-grid">
+    <div class="auth-showcase">
+        <p class="eyebrow mb-2">Join Pheonix Bank</p>
+        <h2>Start your next financial rise.</h2>
+        <p>Register once, then use your Pheonix workspace to manage your profile and start new savings or current accounts.</p>
+        <div class="auth-stat-row">
+            <div class="auth-stat">
+                <strong>Fast</strong>
+                <span>Registration flow</span>
+            </div>
+            <div class="auth-stat">
+                <strong>KYC</strong>
+                <span>Profile ready</span>
+            </div>
+            <div class="auth-stat">
+                <strong>API</strong>
+                <span>Connected app</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="auth-panel">
+        <span class="auth-badge"><i class="bi bi-person-plus"></i></span>
+        <h2>Open Your Account</h2>
+        <p class="mb-4">Create a Pheonix Bank profile in seconds.</p>
+
+        <form asp-action="Register" asp-controller="Auth" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="All" class="alert alert-danger py-2" style="display:@(ViewData.ModelState.ErrorCount > 0 ? "block" : "none")"></div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="FirstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                    <input asp-for="FirstName" class="form-control" placeholder="Rahul" />
+                    <span asp-validation-for="FirstName" class="text-danger small"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="LastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                    <input asp-for="LastName" class="form-control" placeholder="Sharma" />
+                    <span asp-validation-for="LastName" class="text-danger small"></span>
+                </div>
+
+                <div class="col-12">
+                    <label asp-for="Email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                    <input asp-for="Email" class="form-control" placeholder="rahul@example.com" autocomplete="email" />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Password" class="form-label">Password <span class="text-danger">*</span></label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Min. 8 chars" autocomplete="new-password" />
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="ConfirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Re-enter password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="+91 98765 43210" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="NationalId" class="form-label">Aadhaar / National ID</label>
+                    <input asp-for="NationalId" class="form-control" placeholder="1234 5678 9012" />
+                    <span asp-validation-for="NationalId" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="DateOfBirth" class="form-label">Date of Birth</label>
+                    <input asp-for="DateOfBirth" type="date" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Gender" class="form-label">Gender</label>
+                    <select asp-for="Gender" class="form-select">
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="col-12">
+                    <label asp-for="Address" class="form-label">Address</label>
+                    <input asp-for="Address" class="form-control" placeholder="123, Street Name, Area" />
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="City" class="form-label">City</label>
+                    <input asp-for="City" class="form-control" placeholder="Mumbai" />
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Country" class="form-label">Country</label>
+                    <input asp-for="Country" class="form-control" value="India" />
+                </div>
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Create Account</button>
+            </div>
+        </form>
+
+        <hr class="my-4" />
+        <p class="text-center mb-0 text-muted small">
+            Already registered?
+            <a asp-controller="Auth" asp-action="Login" class="text-primary fw-bold">Sign in</a>
+        </p>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

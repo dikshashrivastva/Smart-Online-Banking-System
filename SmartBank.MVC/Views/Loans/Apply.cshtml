@@ -1,0 +1,67 @@
+@model SmartBank.Models.DTOs.Service.LoanApplyRequestDto
+@using SmartBank.Models.DTOs.Customer
+@{
+    ViewData["Title"] = "Apply Loan";
+    var accounts = ViewBag.Accounts as List<AccountDto> ?? [];
+}
+
+<section class="data-card transaction-card">
+    <span class="auth-badge"><i class="bi bi-cash-coin"></i></span>
+    <h2>Apply Loan</h2>
+    <p class="subtitle">Submit your request for admin review.</p>
+
+    <form asp-action="Apply" method="post" class="row g-3 mt-2">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="col-md-6">
+            <label asp-for="LoanType" class="form-label">Loan Type</label>
+            <select asp-for="LoanType" class="form-select">
+                <option>Personal</option>
+                <option>Home</option>
+                <option>Vehicle</option>
+                <option>Education</option>
+                <option>Business</option>
+            </select>
+            <span asp-validation-for="LoanType" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="AccountId" class="form-label">Linked Account</label>
+            <select asp-for="AccountId" class="form-select">
+                <option value="">No account selected</option>
+                @foreach (var account in accounts)
+                {
+                    <option value="@account.AccountId">@account.AccountNumber - @account.AccountType</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="RequestedAmount" class="form-label">Requested Amount</label>
+            <input asp-for="RequestedAmount" class="form-control" type="number" min="1000" step="100" />
+            <span asp-validation-for="RequestedAmount" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="TenureMonths" class="form-label">Tenure Months</label>
+            <input asp-for="TenureMonths" class="form-control" type="number" min="1" max="360" />
+            <span asp-validation-for="TenureMonths" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="Purpose" class="form-label">Purpose</label>
+            <textarea asp-for="Purpose" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="Purpose" class="text-danger"></span>
+        </div>
+
+        <div class="col-12 d-flex gap-2">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-send me-2"></i>Submit</button>
+            <a asp-action="Status" class="btn btn-outline-primary">View Status</a>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

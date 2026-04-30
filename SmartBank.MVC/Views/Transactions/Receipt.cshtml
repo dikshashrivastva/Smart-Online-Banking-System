@@ -1,0 +1,41 @@
+@model SmartBank.Models.DTOs.Transactions.TransactionReceiptDto
+@{
+    ViewData["Title"] = "Transaction Receipt";
+}
+
+<section class="receipt-sheet">
+    <div class="receipt-head">
+        <div class="brand-mark brand-mark-light mb-0">
+            <span class="brand-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" role="img">
+                    <path d="M32 7c7 9 17 12 25 14-6 4-13 5-20 3 7 7 13 15 14 27-8-8-14-12-21-13 2 6 1 12-2 19-3-8-8-15-16-20 7-1 12-4 15-9-7 1-14-2-20-8 10 0 19-4 25-13Z" />
+                </svg>
+            </span>
+            <span>
+                <span class="brand-name">Pheonix Bank</span>
+                <span class="brand-caption">Transaction receipt</span>
+            </span>
+        </div>
+        <span class="status-pill">@Model.Status</span>
+    </div>
+
+    <div class="receipt-reference">
+        <span>Reference Number</span>
+        <strong>@Model.ReferenceNumber</strong>
+    </div>
+
+    <dl class="receipt-grid">
+        <div><dt>Account Number</dt><dd>@Model.AccountNumber</dd></div>
+        <div><dt>Account Holder</dt><dd>@Model.AccountHolderName</dd></div>
+        <div><dt>Type</dt><dd>@Model.Type</dd></div>
+        <div><dt>Amount</dt><dd>INR @Model.Amount.ToString("N2")</dd></div>
+        <div><dt>Fee</dt><dd>INR @Model.Fee.ToString("N2")</dd></div>
+        <div><dt>Created At</dt><dd>@Model.CreatedAt.ToString("dd MMM yyyy HH:mm")</dd></div>
+        <div class="receipt-wide"><dt>Description</dt><dd>@(string.IsNullOrWhiteSpace(Model.Description) ? "None" : Model.Description)</dd></div>
+    </dl>
+
+    <div class="d-flex flex-wrap gap-2 mt-4">
+        <a asp-action="History" class="btn btn-primary"><i class="bi bi-clock-history me-2"></i>Back to History</a>
+        <a asp-action="Deposit" class="btn btn-outline-primary"><i class="bi bi-plus-circle me-2"></i>New Transaction</a>
+    </div>
+</section>

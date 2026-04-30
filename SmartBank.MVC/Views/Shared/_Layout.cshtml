@@ -1,0 +1,171 @@
+@{
+    var isAuthenticated = Context.Request.Cookies.ContainsKey("SmartBankToken");
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+    var action = ViewContext.RouteData.Values["action"]?.ToString();
+    var pageTitle = ViewData["Title"]?.ToString() ?? "Pheonix Bank";
+    var isAuthPage = controller == "Auth";
+    var role = Context.Request.Cookies["SmartBankRole"] ?? "Customer";
+    var isAdmin = role.Equals("Admin", StringComparison.OrdinalIgnoreCase) || role.Equals("Manager", StringComparison.OrdinalIgnoreCase);
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@pageTitle - Pheonix Bank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/smartbank.css" />
+</head>
+<body class="@(isAuthenticated ? "app-shell" : "auth-shell")">
+    @if (isAuthenticated)
+    {
+        <aside class="sidebar">
+            <a class="brand-mark" asp-controller="Dashboard" asp-action="Index" aria-label="Pheonix Bank dashboard">
+                <span class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" role="img">
+                        <path d="M32 7c7 9 17 12 25 14-6 4-13 5-20 3 7 7 13 15 14 27-8-8-14-12-21-13 2 6 1 12-2 19-3-8-8-15-16-20 7-1 12-4 15-9-7 1-14-2-20-8 10 0 19-4 25-13Z" />
+                    </svg>
+                </span>
+                <span>
+                    <span class="brand-name">Pheonix Bank</span>
+                    <span class="brand-caption">Rise. Save. Grow.</span>
+                </span>
+            </a>
+
+            <nav class="sidebar-nav" aria-label="Primary navigation">
+                @if (isAdmin)
+                {
+                    <a class="nav-link @(controller == "Admin" && action == "Index" ? "active" : "")" asp-controller="Admin" asp-action="Index">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Admin Dashboard</span>
+                    </a>
+                    <a class="nav-link @(controller == "Admin" && action == "Users" ? "active" : "")" asp-controller="Admin" asp-action="Users">
+                        <i class="bi bi-people"></i>
+                        <span>Users</span>
+                    </a>
+                    <a class="nav-link @(controller == "Admin" && action == "Loans" ? "active" : "")" asp-controller="Admin" asp-action="Loans">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Loans</span>
+                    </a>
+                    <a class="nav-link @(controller == "Admin" && action == "Tickets" ? "active" : "")" asp-controller="Admin" asp-action="Tickets">
+                        <i class="bi bi-life-preserver"></i>
+                        <span>Support Tickets</span>
+                    </a>
+                    <a class="nav-link @(controller == "Admin" && action == "Reports" ? "active" : "")" asp-controller="Admin" asp-action="Reports">
+                        <i class="bi bi-file-earmark-bar-graph"></i>
+                        <span>Reports</span>
+                    </a>
+                }
+                else
+                {
+                    <a class="nav-link @(controller == "Dashboard" ? "active" : "")" asp-controller="Dashboard" asp-action="Index">
+                        <i class="bi bi-grid-1x2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a class="nav-link @(controller == "Accounts" && action == "Index" ? "active" : "")" asp-controller="Accounts" asp-action="Index">
+                        <i class="bi bi-wallet2"></i>
+                        <span>Accounts</span>
+                    </a>
+                    <a class="nav-link @(controller == "Accounts" && action == "Create" ? "active" : "")" asp-controller="Accounts" asp-action="Create">
+                        <i class="bi bi-plus-circle"></i>
+                        <span>Open Account</span>
+                    </a>
+                    <a class="nav-link @(controller == "Transactions" ? "active" : "")" asp-controller="Transactions" asp-action="History">
+                        <i class="bi bi-arrow-left-right"></i>
+                        <span>Transactions</span>
+                    </a>
+                    <a class="nav-link @(controller == "Loans" ? "active" : "")" asp-controller="Loans" asp-action="Status">
+                        <i class="bi bi-cash-coin"></i>
+                        <span>Loans</span>
+                    </a>
+                    <a class="nav-link @(controller == "Tickets" ? "active" : "")" asp-controller="Tickets" asp-action="Status">
+                        <i class="bi bi-headset"></i>
+                        <span>Support</span>
+                    </a>
+                    <a class="nav-link @(controller == "Notifications" ? "active" : "")" asp-controller="Notifications" asp-action="Index">
+                        <i class="bi bi-bell"></i>
+                        <span>Notifications</span>
+                    </a>
+                    <a class="nav-link @(controller == "Profile" ? "active" : "")" asp-controller="Profile" asp-action="Index">
+                        <i class="bi bi-person-badge"></i>
+                        <span>Profile</span>
+                    </a>
+                }
+            </nav>
+
+            <div class="sidebar-card">
+                <span class="sidebar-card-icon"><i class="bi bi-shield-check"></i></span>
+                <div>
+                    <strong>Secure session</strong>
+                    <small>JWT protected access</small>
+                </div>
+            </div>
+
+            <a class="logout-link" asp-controller="Auth" asp-action="Logout">
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Logout</span>
+            </a>
+        </aside>
+    }
+
+    <div class="page-frame @(isAuthenticated ? "" : "page-frame-auth")">
+        <header class="topbar">
+            <div class="topbar-title">
+                @if (!isAuthenticated)
+                {
+                    <a class="brand-mark brand-mark-light" asp-controller="Auth" asp-action="Login" aria-label="Pheonix Bank home">
+                        <span class="brand-icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" role="img">
+                                <path d="M32 7c7 9 17 12 25 14-6 4-13 5-20 3 7 7 13 15 14 27-8-8-14-12-21-13 2 6 1 12-2 19-3-8-8-15-16-20 7-1 12-4 15-9-7 1-14-2-20-8 10 0 19-4 25-13Z" />
+                            </svg>
+                        </span>
+                        <span>
+                            <span class="brand-name">Pheonix Bank</span>
+                            <span class="brand-caption">Rise. Save. Grow.</span>
+                        </span>
+                    </a>
+                }
+                else
+                {
+                    <p class="eyebrow mb-1">Pheonix Bank Workspace</p>
+                    <h1>@pageTitle</h1>
+                }
+            </div>
+            <div class="topbar-actions">
+                @if (isAuthenticated)
+                {
+                    <a class="icon-button" asp-controller="Profile" asp-action="Index" aria-label="Open profile">
+                        <i class="bi bi-person"></i>
+                    </a>
+                }
+                else if (!isAuthPage || action == "Login")
+                {
+                    <a class="btn btn-primary" asp-controller="Auth" asp-action="Register">Create Account</a>
+                }
+                else
+                {
+                    <a class="btn btn-outline-primary" asp-controller="Auth" asp-action="Login">Sign In</a>
+                }
+            </div>
+        </header>
+
+        <main class="content-panel">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show elevated-alert">
+                    <i class="bi bi-check-circle me-2"></i>@TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

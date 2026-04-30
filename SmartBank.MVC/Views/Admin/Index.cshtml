@@ -1,0 +1,42 @@
+@model SmartBank.Models.DTOs.Service.AdminDashboardDto
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<section class="hero-panel">
+    <div>
+        <p class="eyebrow mb-2">Administration Portal</p>
+        <h2>Manage customers, loans, support, and reports.</h2>
+        <p>Approve service requests, freeze accounts, and review customer activity from one portal.</p>
+        <div class="hero-actions">
+            <a asp-action="Users" class="btn btn-light"><i class="bi bi-people me-2"></i>Users</a>
+            <a asp-action="Loans" class="btn btn-outline-light"><i class="bi bi-cash-stack me-2"></i>Loans</a>
+            <a asp-action="Reports" class="btn btn-outline-light"><i class="bi bi-file-earmark-bar-graph me-2"></i>Reports</a>
+        </div>
+    </div>
+    <div class="balance-card">
+        <span class="label">Total Deposits</span>
+        <div class="amount">INR @Model.TotalDeposits.ToString("N0")</div>
+        <p class="mb-0">Live total across customer accounts.</p>
+        <div class="card-chip"></div>
+    </div>
+</section>
+
+<section class="metric-grid">
+    <div class="metric-card">
+        <span class="metric-icon"><i class="bi bi-people"></i></span>
+        <div><span>Users</span><strong>@Model.TotalUsers</strong></div>
+    </div>
+    <div class="metric-card">
+        <span class="metric-icon coral"><i class="bi bi-lock"></i></span>
+        <div><span>Frozen</span><strong>@Model.FrozenUsers</strong></div>
+    </div>
+    <div class="metric-card">
+        <span class="metric-icon teal"><i class="bi bi-cash-stack"></i></span>
+        <div><span>Pending Loans</span><strong>@Model.PendingLoans</strong></div>
+    </div>
+    <div class="metric-card">
+        <span class="metric-icon"><i class="bi bi-life-preserver"></i></span>
+        <div><span>Open Tickets</span><strong>@Model.OpenTickets</strong></div>
+    </div>
+</section>

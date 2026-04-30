@@ -1,0 +1,54 @@
+@model SmartBank.Models.DTOs.Transactions.TransferFormViewModel
+@{
+    ViewData["Title"] = "Transfer";
+}
+
+<section class="section-heading mt-0">
+    <div>
+        <p class="eyebrow mb-1">Account to account</p>
+        <h2>Transfer funds</h2>
+        <p>Send money atomically between Pheonix Bank accounts.</p>
+    </div>
+    <a asp-action="History" class="btn btn-outline-primary"><i class="bi bi-clock-history me-2"></i>History</a>
+</section>
+
+<section class="data-card transaction-card">
+    <form asp-action="Transfer" method="post" data-balance-refresh>
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label asp-for="FromAccountId" class="form-label">From Account</label>
+                <select asp-for="FromAccountId" class="form-select" data-account-select>
+                    <option value="">Select account</option>
+                    @foreach (var account in Model.Accounts)
+                    {
+                        <option value="@account.AccountId">@account.AccountNumber - @account.AccountType (@account.Currency @account.Balance.ToString("N2"))</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="ToAccountNumber" class="form-label">To Account Number</label>
+                <input asp-for="ToAccountNumber" class="form-control" maxlength="20" />
+                <span asp-validation-for="ToAccountNumber" class="text-danger small"></span>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Amount" class="form-label">Amount</label>
+                <input asp-for="Amount" class="form-control" type="number" min="0.01" step="0.01" />
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Description" class="form-label">Remarks</label>
+                <input asp-for="Description" class="form-control" maxlength="500" />
+            </div>
+        </div>
+        <div class="transaction-balance mt-3" data-balance-output>Available balance updates after selection.</div>
+        <div class="mt-4">
+            <button class="btn btn-primary" type="submit"><i class="bi bi-send me-2"></i>Transfer</button>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/transactions.js"></script>
+}

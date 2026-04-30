@@ -1,0 +1,63 @@
+@model List<SmartBank.Models.DTOs.Service.AdminLoanDto>
+@{
+    ViewData["Title"] = "Loans";
+}
+
+<section class="section-heading">
+    <div>
+        <h2>Loan Approvals</h2>
+        <p>Approve or reject customer loan applications.</p>
+    </div>
+</section>
+
+<section class="table-shell">
+    <table class="table smart-table">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Loan</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Decision</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var loan in Model)
+        {
+            <tr>
+                <td>
+                    <strong>@loan.CustomerName</strong>
+                    <div class="text-muted small">@loan.CustomerEmail</div>
+                </td>
+                <td>
+                    <strong>@loan.LoanType</strong>
+                    <div class="text-muted small">@loan.TenureMonths months</div>
+                </td>
+                <td>INR @loan.RequestedAmount.ToString("N2")</td>
+                <td><span class="status-pill">@loan.Status</span></td>
+                <td>
+                    <form asp-action="LoanDecision" method="post" class="row g-2 align-items-end">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="LoanId" value="@loan.LoanId" />
+                        <div class="col">
+                            <input name="ApprovedAmount" class="form-control form-control-sm" type="number" step="100" value="@loan.RequestedAmount" />
+                        </div>
+                        <div class="col">
+                            <input name="InterestRate" class="form-control form-control-sm" type="number" step="0.1" value="10.5" />
+                        </div>
+                        <div class="col-auto">
+                            <button name="Approve" value="true" class="btn btn-sm btn-primary">Approve</button>
+                        </div>
+                        <div class="col-auto">
+                            <input name="RejectionReason" class="form-control form-control-sm" placeholder="Reason" />
+                        </div>
+                        <div class="col-auto">
+                            <button name="Approve" value="false" class="btn btn-sm btn-outline-primary">Reject</button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</section>

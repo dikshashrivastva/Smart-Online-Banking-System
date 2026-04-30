@@ -1,0 +1,74 @@
+@model List<SmartBank.Models.DTOs.Service.CustomerReportDto>
+@{
+    ViewData["Title"] = "Reports";
+}
+
+<section class="section-heading">
+    <div>
+        <h2>Customer Reports</h2>
+        <p>Accounts, transaction history, loans, and support activity.</p>
+    </div>
+</section>
+
+@foreach (var report in Model)
+{
+    <section class="data-card mb-3">
+        <div class="section-heading mt-0">
+            <div>
+                <h2>@report.FullName</h2>
+                <p>@report.Email | Total Balance: INR @report.TotalBalance.ToString("N2")</p>
+            </div>
+            <span class="status-pill">@(report.IsFrozen ? "Frozen" : "Active")</span>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-lg-4">
+                <h3 class="h6 fw-bold">Accounts</h3>
+                @foreach (var account in report.Accounts)
+                {
+                    <p class="mb-1">@account.AccountNumber - INR @account.Balance.ToString("N2")</p>
+                }
+            </div>
+            <div class="col-lg-4">
+                <h3 class="h6 fw-bold">Loans</h3>
+                @foreach (var loan in report.Loans)
+                {
+                    <p class="mb-1">@loan.LoanType - @loan.Status - INR @loan.RequestedAmount.ToString("N2")</p>
+                }
+            </div>
+            <div class="col-lg-4">
+                <h3 class="h6 fw-bold">Tickets</h3>
+                @foreach (var ticket in report.Tickets)
+                {
+                    <p class="mb-1">#@ticket.TicketId @ticket.Subject - @ticket.Status</p>
+                }
+            </div>
+        </div>
+
+        <div class="table-shell mt-3">
+            <table class="table smart-table">
+                <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var transaction in report.Transactions.Take(10))
+                {
+                    <tr>
+                        <td>@transaction.ReferenceNumber</td>
+                        <td>@transaction.Type</td>
+                        <td>INR @transaction.Amount.ToString("N2")</td>
+                        <td>@transaction.Status</td>
+                        <td>@transaction.CreatedAt.ToString("dd MMM yyyy")</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </section>
+}

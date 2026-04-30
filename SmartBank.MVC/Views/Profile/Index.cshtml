@@ -1,0 +1,74 @@
+@model SmartBank.Models.DTOs.Customer.CustomerProfileDto
+@{
+    ViewData["Title"] = "My Profile";
+    var initials = $"{Model?.FirstName?.FirstOrDefault()}{Model?.LastName?.FirstOrDefault()}".Trim();
+    if (string.IsNullOrWhiteSpace(initials)) initials = "SB";
+}
+
+<div class="data-card">
+    <div class="profile-summary">
+        <span class="profile-avatar">@initials.ToUpper()</span>
+        <div>
+            <p class="eyebrow mb-1">Customer details</p>
+            <h2>@(Model?.FirstName ?? "Pheonix") @(Model?.LastName ?? "Customer")</h2>
+            <p class="subtitle mb-0">@Model?.Email</p>
+        </div>
+    </div>
+
+    <form asp-action="Index" method="post">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="alert alert-danger py-2" style="display:@(ViewData.ModelState.ErrorCount > 0 ? "block" : "none")"></div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label" for="FirstName">First Name</label>
+                <input class="form-control" id="FirstName" name="FirstName" value="@Model?.FirstName" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="LastName">Last Name</label>
+                <input class="form-control" id="LastName" name="LastName" value="@Model?.LastName" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="PhoneNumber">Phone Number</label>
+                <input class="form-control" id="PhoneNumber" name="PhoneNumber" value="@Model?.PhoneNumber" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="DateOfBirth">Date of Birth</label>
+                <input class="form-control" id="DateOfBirth" name="DateOfBirth" type="date" value="@Model?.DateOfBirth?.ToString("yyyy-MM-dd")" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="Gender">Gender</label>
+                <select class="form-select" id="Gender" name="Gender">
+                    <option value="">Select</option>
+                    <option selected="@(Model?.Gender == "Male")">Male</option>
+                    <option selected="@(Model?.Gender == "Female")">Female</option>
+                    <option selected="@(Model?.Gender == "Other")">Other</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">KYC Status</label>
+                <input class="form-control" value="@Model?.KycStatus" disabled />
+            </div>
+            <div class="col-12">
+                <label class="form-label" for="Address">Address</label>
+                <input class="form-control" id="Address" name="Address" value="@Model?.Address" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="City">City</label>
+                <input class="form-control" id="City" name="City" value="@Model?.City" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="Country">Country</label>
+                <input class="form-control" id="Country" name="Country" value="@(Model?.Country ?? "India")" />
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">
+            <i class="bi bi-check2-circle me-2"></i>Save Profile
+        </button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

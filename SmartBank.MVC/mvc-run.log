@@ -1,0 +1,203 @@
+Using launch settings from SmartBank.MVC\Properties\launchSettings.json...
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://localhost:7100
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5100
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\project\SmartBankSystem\SmartBank.MVC
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:7201/api/auth/login
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request POST https://localhost:7201/api/auth/login
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 4342.3203ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 4364.1117ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/loans/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/loans/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 247.2446ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 247.4054ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/accounts
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/accounts
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 77.801ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 78.0835ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:7201/api/loans/apply
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request POST https://localhost:7201/api/loans/apply
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 318.4864ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 318.6664ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/loans/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/loans/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 33.6443ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 33.7749ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/tickets/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/tickets/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 36.3583ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 36.8436ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/loans/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/loans/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 32.931ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 33.1444ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/tickets/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/tickets/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 18.6699ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 18.8308ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:7201/api/tickets/create
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request POST https://localhost:7201/api/tickets/create
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 85.2818ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 85.4183ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/tickets/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/tickets/status
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 17.5376ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 17.6156ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/notifications
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/notifications
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 50.5339ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 50.641ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/profile
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/profile
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 36.2077ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 36.3261ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:7201/api/auth/login
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request POST https://localhost:7201/api/auth/login
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 47.0963ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 47.4673ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/admin/dashboard
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/admin/dashboard
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 101.8385ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 101.9168ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/admin/users
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/admin/users
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 153.5587ms - 500
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 153.6869ms - 500
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/admin/loans
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/admin/loans
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 42.2573ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 42.5089ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:7201/api/admin/loan/approve
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request POST https://localhost:7201/api/admin/loan/approve
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 121.2387ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 121.4198ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/admin/loans
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/admin/loans
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 14.6308ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 14.7193ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/admin/tickets
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/admin/tickets
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 32.2815ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 32.3971ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request POST https://localhost:7201/api/admin/tickets/1/reply
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request POST https://localhost:7201/api/admin/tickets/1/reply
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 47.8539ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 47.9415ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/admin/tickets
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/admin/tickets
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 6.2202ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 6.3044ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/admin/reports
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/admin/reports
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 199.5793ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 199.6538ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/admin/users
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/admin/users
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 25.9346ms - 500
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 26.0323ms - 500
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[100]
+      Start processing HTTP request GET https://localhost:7201/api/profile
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[100]
+      Sending HTTP request GET https://localhost:7201/api/profile
+info: System.Net.Http.HttpClient.SmartBankAPI.ClientHandler[101]
+      Received HTTP response headers after 14.1235ms - 200
+info: System.Net.Http.HttpClient.SmartBankAPI.LogicalHandler[101]
+      End processing HTTP request after 14.2072ms - 200

@@ -1,0 +1,111 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<section class="hero-panel">
+    <div>
+        <p class="eyebrow mb-2">Account overview</p>
+        <h2>Banking with a little more firepower.</h2>
+        <p>Manage your profile, open accounts, and keep your Pheonix Bank workspace ready for everyday digital banking.</p>
+        <div class="hero-actions">
+            <a asp-controller="Accounts" asp-action="Index" class="btn btn-light">
+                <i class="bi bi-wallet2 me-2"></i>View Accounts
+            </a>
+            <a asp-controller="Accounts" asp-action="Create" class="btn btn-outline-light">
+                <i class="bi bi-plus-circle me-2"></i>Open Account
+            </a>
+            <a asp-controller="Loans" asp-action="Apply" class="btn btn-outline-light">
+                <i class="bi bi-cash-coin me-2"></i>Apply Loan
+            </a>
+        </div>
+    </div>
+    <div class="balance-card">
+        <span class="label">Secure access</span>
+        <div class="amount">Active</div>
+        <p class="mb-0">Your session is protected with a signed JWT token stored in an HTTP-only browser cookie.</p>
+        <div class="card-chip"></div>
+    </div>
+</section>
+
+<section class="metric-grid">
+    <div class="metric-card">
+        <span class="metric-icon teal"><i class="bi bi-shield-lock"></i></span>
+        <div>
+            <span>Authentication</span>
+            <strong>JWT Enabled</strong>
+        </div>
+    </div>
+    <div class="metric-card">
+        <span class="metric-icon"><i class="bi bi-person-check"></i></span>
+        <div>
+            <span>Customer Profile</span>
+            <strong>Ready to edit</strong>
+        </div>
+    </div>
+    <div class="metric-card">
+        <span class="metric-icon coral"><i class="bi bi-bank"></i></span>
+        <div>
+            <span>Accounts</span>
+            <strong>Savings or Current</strong>
+        </div>
+    </div>
+    <div class="metric-card">
+        <span class="metric-icon teal"><i class="bi bi-headset"></i></span>
+        <div>
+            <span>Customer Service</span>
+            <strong>Loans and Support</strong>
+        </div>
+    </div>
+</section>
+
+<section class="section-heading">
+    <div>
+        <h2>Quick Actions</h2>
+        <p>Jump into the main banking workflows.</p>
+    </div>
+</section>
+
+<section class="quick-grid">
+    <a asp-controller="Profile" asp-action="Index" class="quick-card">
+        <i class="bi bi-person-lines-fill"></i>
+        <div>
+            <h3>Complete Profile</h3>
+            <p>Keep personal details and KYC information up to date.</p>
+        </div>
+    </a>
+    <a asp-controller="Accounts" asp-action="Index" class="quick-card">
+        <i class="bi bi-credit-card-2-front"></i>
+        <div>
+            <h3>Review Accounts</h3>
+            <p>See account numbers, statuses, balances, and opening dates.</p>
+        </div>
+    </a>
+    <a asp-controller="Accounts" asp-action="Create" class="quick-card">
+        <i class="bi bi-piggy-bank"></i>
+        <div>
+            <h3>Open New Account</h3>
+            <p>Create a savings or current account with an initial deposit.</p>
+        </div>
+    </a>
+    <a asp-controller="Loans" asp-action="Apply" class="quick-card">
+        <i class="bi bi-cash-coin"></i>
+        <div>
+            <h3>Apply Loan</h3>
+            <p>Submit a loan request and track approval status.</p>
+        </div>
+    </a>
+    <a asp-controller="Tickets" asp-action="Create" class="quick-card">
+        <i class="bi bi-headset"></i>
+        <div>
+            <h3>Raise Ticket</h3>
+            <p>Send an issue to admin and view the reply in your portal.</p>
+        </div>
+    </a>
+    <a asp-controller="Notifications" asp-action="Index" class="quick-card">
+        <i class="bi bi-bell"></i>
+        <div>
+            <h3>Notifications</h3>
+            <p>See updates for loans, support tickets, and account actions.</p>
+        </div>
+    </a>
+</section>
