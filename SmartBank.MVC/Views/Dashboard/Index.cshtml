@@ -14,6 +14,9 @@
             <a asp-controller="Accounts" asp-action="Create" class="btn btn-outline-light">
                 <i class="bi bi-plus-circle me-2"></i>Open Account
             </a>
+            <a asp-controller="Loans" asp-action="Apply" class="btn btn-outline-light">
+                <i class="bi bi-cash-coin me-2"></i>Apply Loan
+            </a>
         </div>
     </div>
     <div class="balance-card">
@@ -46,6 +49,13 @@
             <strong>Savings or Current</strong>
         </div>
     </div>
+    <div class="metric-card">
+        <span class="metric-icon teal"><i class="bi bi-headset"></i></span>
+        <div>
+            <span>Customer Service</span>
+            <strong>Loans and Support</strong>
+        </div>
+    </div>
 </section>
 
 <section class="section-heading">
@@ -75,6 +85,27 @@
         <div>
             <h3>Open New Account</h3>
             <p>Create a savings or current account with an initial deposit.</p>
+        </div>
+    </a>
+    <a asp-controller="Loans" asp-action="Apply" class="quick-card">
+        <i class="bi bi-cash-coin"></i>
+        <div>
+            <h3>Apply Loan</h3>
+            <p>Submit a loan request and track approval status.</p>
+        </div>
+    </a>
+    <a asp-controller="Tickets" asp-action="Create" class="quick-card">
+        <i class="bi bi-headset"></i>
+        <div>
+            <h3>Raise Ticket</h3>
+            <p>Send an issue to admin and view the reply in your portal.</p>
+        </div>
+    </a>
+    <a asp-controller="Notifications" asp-action="Index" class="quick-card">
+        <i class="bi bi-bell"></i>
+        <div>
+            <h3>Notifications</h3>
+            <p>See updates for loans, support tickets, and account actions.</p>
         </div>
     </a>
 </section>

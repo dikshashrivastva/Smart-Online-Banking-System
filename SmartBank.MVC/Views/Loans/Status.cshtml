@@ -1,0 +1,62 @@
+@model List<SmartBank.Models.DTOs.Service.LoanStatusDto>
+@{
+    ViewData["Title"] = "Loan Status";
+}
+
+<section class="section-heading">
+    <div>
+        <h2>Loan Status</h2>
+        <p>Track submitted loan applications.</p>
+    </div>
+    <a asp-action="Apply" class="btn btn-primary"><i class="bi bi-plus-circle me-2"></i>Apply Loan</a>
+</section>
+
+@if (!Model.Any())
+{
+    <section class="empty-state">
+        <div>
+            <i class="bi bi-cash-coin"></i>
+            <h2>No loan requests yet</h2>
+            <p class="text-muted">Your applications will appear here after submission.</p>
+        </div>
+    </section>
+}
+else
+{
+    <section class="table-shell">
+        <table class="table smart-table">
+            <thead>
+                <tr>
+                    <th>Loan</th>
+                    <th>Requested</th>
+                    <th>Approved</th>
+                    <th>Tenure</th>
+                    <th>Status</th>
+                    <th>Reviewed</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var loan in Model)
+            {
+                <tr>
+                    <td>
+                        <strong>@loan.LoanType</strong>
+                        <div class="text-muted small">@loan.Purpose</div>
+                    </td>
+                    <td>INR @loan.RequestedAmount.ToString("N2")</td>
+                    <td>@(loan.ApprovedAmount.HasValue ? $"INR {loan.ApprovedAmount:N2}" : "-")</td>
+                    <td>@loan.TenureMonths months</td>
+                    <td><span class="status-pill">@loan.Status</span></td>
+                    <td>@(loan.ReviewedAt?.ToString("dd MMM yyyy") ?? "Pending")</td>
+                </tr>
+                @if (!string.IsNullOrWhiteSpace(loan.RejectionReason))
+                {
+                    <tr>
+                        <td colspan="6" class="text-muted">Reason: @loan.RejectionReason</td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </section>
+}

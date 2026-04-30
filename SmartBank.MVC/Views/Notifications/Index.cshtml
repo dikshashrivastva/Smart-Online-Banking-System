@@ -1,0 +1,38 @@
+@model List<SmartBank.Models.DTOs.Service.NotificationDto>
+@{
+    ViewData["Title"] = "Notifications";
+}
+
+<section class="section-heading">
+    <div>
+        <h2>Notifications</h2>
+        <p>Latest service updates for your account.</p>
+    </div>
+</section>
+
+@if (!Model.Any())
+{
+    <section class="empty-state">
+        <div>
+            <i class="bi bi-bell"></i>
+            <h2>No notifications</h2>
+            <p class="text-muted">Loan and ticket updates will appear here.</p>
+        </div>
+    </section>
+}
+else
+{
+    <section class="quick-grid">
+        @foreach (var note in Model)
+        {
+            <article class="quick-card">
+                <i class="bi bi-bell"></i>
+                <div>
+                    <h3>@note.Title</h3>
+                    <p>@note.Message</p>
+                    <p class="text-muted mt-2">@note.CreatedAt?.ToString("dd MMM yyyy, hh:mm tt")</p>
+                </div>
+            </article>
+        }
+    </section>
+}

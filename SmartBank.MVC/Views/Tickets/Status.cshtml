@@ -1,0 +1,43 @@
+@model List<SmartBank.Models.DTOs.Service.TicketDto>
+@{
+    ViewData["Title"] = "Support Tickets";
+}
+
+<section class="section-heading">
+    <div>
+        <h2>Support Tickets</h2>
+        <p>Admin replies and closure status appear here.</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle me-2"></i>Raise Ticket</a>
+</section>
+
+@if (!Model.Any())
+{
+    <section class="empty-state">
+        <div>
+            <i class="bi bi-headset"></i>
+            <h2>No tickets yet</h2>
+            <p class="text-muted">Create a ticket whenever you need help.</p>
+        </div>
+    </section>
+}
+else
+{
+    <section class="quick-grid">
+        @foreach (var ticket in Model)
+        {
+            <article class="quick-card">
+                <i class="bi bi-life-preserver"></i>
+                <div>
+                    <h3>#@ticket.TicketId - @ticket.Subject</h3>
+                    <p>@ticket.Description</p>
+                    <p class="mt-2"><span class="status-pill">@ticket.Status</span> <span class="text-muted">@ticket.Priority</span></p>
+                    @if (!string.IsNullOrWhiteSpace(ticket.Resolution))
+                    {
+                        <p class="mt-2"><strong>Admin reply:</strong> @ticket.Resolution</p>
+                    }
+                </div>
+            </article>
+        }
+    </section>
+}

@@ -1,0 +1,132 @@
+@model List<SmartBank.Models.DTOs.Service.AdminCustomerAccountDto>
+@{
+    ViewData["Title"] = "Users";
+    var kycStatuses = new[] { "Pending", "Verified", "Rejected" };
+}
+
+<section class="section-heading">
+    <div>
+        <h2>Users</h2>
+        <p>Review customer profiles, update KYC, and manage every account.</p>
+    </div>
+</section>
+
+@if (!Model.Any())
+{
+    <section class="empty-state">
+        <div>
+            <i class="bi bi-people"></i>
+            <h2>No customers found</h2>
+            <p class="text-muted">Customer profiles will appear here after registration.</p>
+        </div>
+    </section>
+}
+else
+{
+    @foreach (var user in Model)
+    {
+        <section class="data-card mb-3">
+            <div class="section-heading mt-0">
+                <div>
+                    <h2>@user.FullName</h2>
+                    <p>@user.Email | @user.PhoneNumber | Total Balance: INR @user.TotalBalance.ToString("N2")</p>
+                </div>
+                <span class="status-pill">@(user.IsFrozen ? "Customer Frozen" : "Customer Active")</span>
+            </div>
+
+            <div class="row g-2 align-items-end mb-3">
+                <div class="col-lg-5">
+                    <form asp-action="UpdateKyc" method="post" class="row g-2 align-items-end">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="UserId" value="@user.UserId" />
+                        <div class="col">
+                            <label class="form-label">KYC Status</label>
+                            <select name="KycStatus" class="form-select">
+                                @foreach (var status in kycStatuses)
+                                {
+                                    <option value="@status" selected="@(string.Equals(user.KycStatus, status, StringComparison.OrdinalIgnoreCase))">@status</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">Update KYC</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-lg-7 text-lg-end">
+                    <form asp-action="Freeze" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="userId" value="@user.UserId" />
+                        <input type="hidden" name="freeze" value="@(user.IsFrozen ? "false" : "true")" />
+                        <button type="submit" class="btn @(user.IsFrozen ? "btn-outline-primary" : "btn-primary")">
+                            @(user.IsFrozen ? "Unfreeze Customer" : "Freeze Customer")
+                        </button>
+                    </form>
+                    <a asp-action="Reports" asp-route-userId="@user.UserId" class="btn btn-outline-primary">Report</a>
+                </div>
+            </div>
+
+            @if (!user.Accounts.Any())
+            {
+                <div class="empty-state">
+                    <div>
+                        <i class="bi bi-wallet2"></i>
+                        <h2>No accounts</h2>
+                        <p class="text-muted">This customer has not opened an account yet.</p>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="table-shell">
+                    <table class="table smart-table">
+                        <thead>
+                            <tr>
+                                <th>Account</th>
+                                <th>Type</th>
+                                <th>Balance</th>
+                                <th>IFSC</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var account in user.Accounts)
+                        {
+                            var isClosed = string.Equals(account.Status, "Closed", StringComparison.OrdinalIgnoreCase);
+                            var isFrozen = string.Equals(account.Status, "Frozen", StringComparison.OrdinalIgnoreCase);
+                            <tr>
+                                <td>
+                                    <strong>@account.AccountNumber</strong>
+                                    <div class="text-muted small">Opened @account.OpenedAt?.ToString("dd MMM yyyy")</div>
+                                </td>
+                                <td>@account.AccountType</td>
+                                <td>INR @account.Balance.ToString("N2")</td>
+                                <td>@account.Ifsccode</td>
+                                <td><span class="status-pill">@account.Status</span></td>
+                                <td>
+                                    <form asp-action="AccountStatus" method="post" class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="AccountId" value="@account.AccountId" />
+                                        <input type="hidden" name="Status" value="@(isFrozen ? "Active" : "Frozen")" />
+                                        <button type="submit" class="btn btn-sm @(isFrozen ? "btn-outline-primary" : "btn-primary")" disabled="@isClosed">
+                                            @(isFrozen ? "Unfreeze" : "Freeze")
+                                        </button>
+                                    </form>
+                                    <form asp-action="AccountStatus" method="post" class="d-inline">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="AccountId" value="@account.AccountId" />
+                                        <input type="hidden" name="Status" value="Closed" />
+                                        <button type="submit" class="btn btn-sm btn-outline-primary" disabled="@isClosed">Close</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </section>
+    }
+}

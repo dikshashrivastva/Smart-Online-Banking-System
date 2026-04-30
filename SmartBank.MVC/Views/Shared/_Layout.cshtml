@@ -4,6 +4,8 @@
     var action = ViewContext.RouteData.Values["action"]?.ToString();
     var pageTitle = ViewData["Title"]?.ToString() ?? "Pheonix Bank";
     var isAuthPage = controller == "Auth";
+    var role = Context.Request.Cookies["SmartBankRole"] ?? "Customer";
+    var isAdmin = role.Equals("Admin", StringComparison.OrdinalIgnoreCase) || role.Equals("Manager", StringComparison.OrdinalIgnoreCase);
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -35,26 +37,64 @@
             </a>
 
             <nav class="sidebar-nav" aria-label="Primary navigation">
-                <a class="nav-link @(controller == "Dashboard" ? "active" : "")" asp-controller="Dashboard" asp-action="Index">
-                    <i class="bi bi-grid-1x2"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a class="nav-link @(controller == "Accounts" && action == "Index" ? "active" : "")" asp-controller="Accounts" asp-action="Index">
-                    <i class="bi bi-wallet2"></i>
-                    <span>Accounts</span>
-                </a>
-                <a class="nav-link @(controller == "Accounts" && action == "Create" ? "active" : "")" asp-controller="Accounts" asp-action="Create">
-                    <i class="bi bi-plus-circle"></i>
-                    <span>Open Account</span>
-                </a>
-                <a class="nav-link @(controller == "Transactions" ? "active" : "")" asp-controller="Transactions" asp-action="History">
-                    <i class="bi bi-arrow-left-right"></i>
-                    <span>Transactions</span>
-                </a>
-                <a class="nav-link @(controller == "Profile" ? "active" : "")" asp-controller="Profile" asp-action="Index">
-                    <i class="bi bi-person-badge"></i>
-                    <span>Profile</span>
-                </a>
+                @if (isAdmin)
+                {
+                    <a class="nav-link @(controller == "Admin" && action == "Index" ? "active" : "")" asp-controller="Admin" asp-action="Index">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Admin Dashboard</span>
+                    </a>
+                    <a class="nav-link @(controller == "Admin" && action == "Users" ? "active" : "")" asp-controller="Admin" asp-action="Users">
+                        <i class="bi bi-people"></i>
+                        <span>Users</span>
+                    </a>
+                    <a class="nav-link @(controller == "Admin" && action == "Loans" ? "active" : "")" asp-controller="Admin" asp-action="Loans">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Loans</span>
+                    </a>
+                    <a class="nav-link @(controller == "Admin" && action == "Tickets" ? "active" : "")" asp-controller="Admin" asp-action="Tickets">
+                        <i class="bi bi-life-preserver"></i>
+                        <span>Support Tickets</span>
+                    </a>
+                    <a class="nav-link @(controller == "Admin" && action == "Reports" ? "active" : "")" asp-controller="Admin" asp-action="Reports">
+                        <i class="bi bi-file-earmark-bar-graph"></i>
+                        <span>Reports</span>
+                    </a>
+                }
+                else
+                {
+                    <a class="nav-link @(controller == "Dashboard" ? "active" : "")" asp-controller="Dashboard" asp-action="Index">
+                        <i class="bi bi-grid-1x2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a class="nav-link @(controller == "Accounts" && action == "Index" ? "active" : "")" asp-controller="Accounts" asp-action="Index">
+                        <i class="bi bi-wallet2"></i>
+                        <span>Accounts</span>
+                    </a>
+                    <a class="nav-link @(controller == "Accounts" && action == "Create" ? "active" : "")" asp-controller="Accounts" asp-action="Create">
+                        <i class="bi bi-plus-circle"></i>
+                        <span>Open Account</span>
+                    </a>
+                    <a class="nav-link @(controller == "Transactions" ? "active" : "")" asp-controller="Transactions" asp-action="History">
+                        <i class="bi bi-arrow-left-right"></i>
+                        <span>Transactions</span>
+                    </a>
+                    <a class="nav-link @(controller == "Loans" ? "active" : "")" asp-controller="Loans" asp-action="Status">
+                        <i class="bi bi-cash-coin"></i>
+                        <span>Loans</span>
+                    </a>
+                    <a class="nav-link @(controller == "Tickets" ? "active" : "")" asp-controller="Tickets" asp-action="Status">
+                        <i class="bi bi-headset"></i>
+                        <span>Support</span>
+                    </a>
+                    <a class="nav-link @(controller == "Notifications" ? "active" : "")" asp-controller="Notifications" asp-action="Index">
+                        <i class="bi bi-bell"></i>
+                        <span>Notifications</span>
+                    </a>
+                    <a class="nav-link @(controller == "Profile" ? "active" : "")" asp-controller="Profile" asp-action="Index">
+                        <i class="bi bi-person-badge"></i>
+                        <span>Profile</span>
+                    </a>
+                }
             </nav>
 
             <div class="sidebar-card">

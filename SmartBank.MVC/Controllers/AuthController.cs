@@ -56,9 +56,20 @@ public class AuthController : Controller
                 SameSite = SameSiteMode.Strict,
                 Expires  = DateTimeOffset.UtcNow.AddDays(1)
             });
+            Response.Cookies.Append("SmartBankRole", result.User?.RoleName ?? "Customer", new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = Request.IsHttps,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTimeOffset.UtcNow.AddDays(1)
+            });
 
             if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                 return Redirect(returnUrl);
+
+            if (string.Equals(result.User?.RoleName, "Admin", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(result.User?.RoleName, "Manager", StringComparison.OrdinalIgnoreCase))
+                return RedirectToAction("Index", "Admin");
 
             return RedirectToAction("Index", "Dashboard");
         }
@@ -114,6 +125,7 @@ public class AuthController : Controller
     public IActionResult Logout()
     {
         Response.Cookies.Delete("SmartBankToken");
+        Response.Cookies.Delete("SmartBankRole");
         return RedirectToAction(nameof(Login));
     }
 }

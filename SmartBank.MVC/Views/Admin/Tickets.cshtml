@@ -1,0 +1,42 @@
+@model List<SmartBank.Models.DTOs.Service.TicketDto>
+@{
+    ViewData["Title"] = "Support Tickets";
+}
+
+<section class="section-heading">
+    <div>
+        <h2>Support Tickets</h2>
+        <p>Reply to customer issues and keep tickets open or closed.</p>
+    </div>
+</section>
+
+<section class="quick-grid">
+    @foreach (var ticket in Model)
+    {
+        <article class="quick-card">
+            <i class="bi bi-life-preserver"></i>
+            <div>
+                <h3>#@ticket.TicketId - @ticket.Subject</h3>
+                <p><strong>@ticket.CustomerName</strong> <span class="text-muted">@ticket.CustomerEmail</span></p>
+                <p>@ticket.Description</p>
+                <p><span class="status-pill">@ticket.Status</span> <span class="text-muted">@ticket.Priority</span></p>
+                <form asp-action="TicketReply" method="post" class="row g-2 mt-2">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="ticketId" value="@ticket.TicketId" />
+                    <div class="col-12">
+                        <textarea name="Resolution" class="form-control" rows="3">@ticket.Resolution</textarea>
+                    </div>
+                    <div class="col">
+                        <select name="Status" class="form-select">
+                            <option selected="@(ticket.Status != "Closed")">Open</option>
+                            <option selected="@(ticket.Status == "Closed")">Closed</option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </article>
+    }
+</section>

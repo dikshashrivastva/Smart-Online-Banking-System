@@ -10,6 +10,10 @@ public class DashboardController : Controller
         if (!Request.Cookies.ContainsKey("SmartBankToken"))
             return RedirectToAction("Login", "Auth");
 
+        if (Request.Cookies.TryGetValue("SmartBankRole", out var role) &&
+            (role.Equals("Admin", StringComparison.OrdinalIgnoreCase) || role.Equals("Manager", StringComparison.OrdinalIgnoreCase)))
+            return RedirectToAction("Index", "Admin");
+
         return View();
     }
 }

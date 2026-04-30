@@ -1,0 +1,444 @@
+Using launch settings from SmartBank.API\Properties\launchSettings.json...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (61ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      
+      IF EXISTS
+          (SELECT *
+           FROM [sys].[objects] o
+           WHERE [o].[type] = 'U'
+           AND [o].[is_ms_shipped] = 0
+           AND NOT EXISTS (SELECT *
+               FROM [sys].[extended_properties] AS [ep]
+               WHERE [ep].[major_id] = [o].[object_id]
+                   AND [ep].[minor_id] = 0
+                   AND [ep].[class] = 1
+                   AND [ep].[name] = N'microsoft_database_tools_support'
+          )
+      )
+      SELECT 1 ELSE SELECT 0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (44ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      IF COL_LENGTH('Accounts', 'RowVersion') IS NULL
+    ALTER TABLE Accounts ADD RowVersion rowversion NOT NULL;
+
+IF COL_LENGTH('Transactions', 'BalanceBefore') IS NULL
+    ALTER TABLE Transactions ADD BalanceBefore decimal(18,2) NOT NULL CONSTRAINT DF_Transactions_BalanceBefore DEFAULT 0;
+
+IF COL_LENGTH('Transactions', 'IPAddress') IS NULL
+    ALTER TABLE Transactions ADD IPAddress nvarchar(50) NULL;
+
+IF COL_LENGTH('Transactions', 'DeviceInfo') IS NULL
+    ALTER TABLE Transactions ADD DeviceInfo nvarchar(500) NULL;
+
+IF COL_LENGTH('Transfers', 'Fee') IS NULL
+    ALTER TABLE Transfers ADD Fee decimal(18,2) NOT NULL CONSTRAINT DF_Transfers_Fee DEFAULT 0;
+
+IF COL_LENGTH('Transfers', 'IdempotencyKey') IS NULL
+    ALTER TABLE Transfers ADD IdempotencyKey nvarchar(100) NULL;
+
+IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_Transfers_IdempotencyKey' AND object_id = OBJECT_ID('Transfers'))
+    EXEC('CREATE UNIQUE INDEX IX_Transfers_IdempotencyKey ON Transfers(IdempotencyKey) WHERE IdempotencyKey IS NOT NULL');
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://localhost:7201
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5201
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\project\SmartBankSystem\SmartBank.API
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (107ms) [Parameters=[@__ToLower_0='?' (Size = 150)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt], [r].[RoleId], [r].[CreatedAt], [r].[Description], [r].[IsActive], [r].[RoleName]
+      FROM [Users] AS [u]
+      INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+      WHERE LOWER([u].[Email]) = @__ToLower_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (35ms) [Parameters=[@p20='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (Size = 100), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Date), @p5='?' (Size = 150), @p6='?' (DbType = Int32), @p7='?' (Size = 100), @p8='?' (Size = 10), @p9='?' (DbType = Boolean), @p10='?' (DbType = Boolean), @p11='?' (DbType = Boolean), @p12='?' (Size = 20), @p13='?' (DbType = DateTime2), @p14='?' (Size = 100), @p15='?' (Size = 30), @p16='?' (Size = 512), @p17='?' (Size = 20), @p18='?' (DbType = Int32), @p19='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      UPDATE [Users] SET [Address] = @p0, [City] = @p1, [Country] = @p2, [CreatedAt] = @p3, [DateOfBirth] = @p4, [Email] = @p5, [FailedLoginAttempts] = @p6, [FirstName] = @p7, [Gender] = @p8, [IsActive] = @p9, [IsEmailVerified] = @p10, [IsFrozen] = @p11, [KycStatus] = @p12, [LastLoginAt] = @p13, [LastName] = @p14, [NationalId] = @p15, [PasswordHash] = @p16, [PhoneNumber] = @p17, [RoleId] = @p18, [UpdatedAt] = @p19
+      OUTPUT 1
+      WHERE [UserId] = @p20;
+info: SmartBank.API.Services.AuthService[0]
+      User logged in: harsh@bookstore.com
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[LoanId], [l].[AccountId], [l].[ApprovedAmount], [l].[CreatedAt], [l].[DisbursedAt], [l].[EMIAmount], [l].[InterestRate], [l].[LoanType], [l].[Purpose], [l].[RejectionReason], [l].[RequestedAmount], [l].[ReviewedAt], [l].[ReviewedByUserId], [l].[Status], [l].[TenureMonths], [l].[UpdatedAt], [l].[UserId]
+      FROM [Loans] AS [l]
+      WHERE [l].[UserId] = 2
+      ORDER BY [l].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (12ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [a].[AccountId], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[BranchCode], [a].[ClosedAt], [a].[Currency], [a].[IFSCCode], [a].[InterestRate], [a].[MinimumBalance], [a].[OpenedAt], [a].[RowVersion], [a].[Status], [a].[UpdatedAt], [a].[UserId]
+      FROM [Accounts] AS [a]
+      WHERE [a].[UserId] = @__userId_0
+      ORDER BY [a].[OpenedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__request_AccountId_0='?' (DbType = Int32), @__userId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [Accounts] AS [a]
+              WHERE [a].[AccountId] = @__request_AccountId_0 AND [a].[UserId] = @__userId_1) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (34ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = DateTime2), @p3='?' (DbType = DateTime2), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p6='?' (Size = 50), @p7='?' (Size = 500), @p8='?' (Size = 500), @p9='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p10='?' (DbType = DateTime2), @p11='?' (DbType = Int32), @p12='?' (Size = 20), @p13='?' (DbType = Int32), @p14='?' (DbType = DateTime2), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [Loans] ([AccountId], [ApprovedAmount], [CreatedAt], [DisbursedAt], [EMIAmount], [InterestRate], [LoanType], [Purpose], [RejectionReason], [RequestedAmount], [ReviewedAt], [ReviewedByUserId], [Status], [TenureMonths], [UpdatedAt], [UserId])
+      OUTPUT INSERTED.[LoanId]
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Boolean), @p2='?' (Size = 2000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (Size = 200), @p7='?' (Size = 50), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [Notifications] ([CreatedAt], [IsRead], [Message], [ReadAt], [RelatedEntityId], [RelatedEntityType], [Title], [Type], [UserId])
+      OUTPUT INSERTED.[NotificationId]
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[LoanId], [l].[AccountId], [l].[ApprovedAmount], [l].[CreatedAt], [l].[DisbursedAt], [l].[EMIAmount], [l].[InterestRate], [l].[LoanType], [l].[Purpose], [l].[RejectionReason], [l].[RequestedAmount], [l].[ReviewedAt], [l].[ReviewedByUserId], [l].[Status], [l].[TenureMonths], [l].[UpdatedAt], [l].[UserId]
+      FROM [Loans] AS [l]
+      WHERE [l].[UserId] = 2
+      ORDER BY [l].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [s].[TicketId], [s].[AssignedToUserId], [s].[Category], [s].[CreatedAt], [s].[CreatedByUserId], [s].[Description], [s].[Priority], [s].[Resolution], [s].[ResolvedAt], [s].[Status], [s].[Subject], [s].[UpdatedAt], [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM [SupportTickets] AS [s]
+      INNER JOIN [Users] AS [u] ON [s].[CreatedByUserId] = [u].[UserId]
+      WHERE [s].[CreatedByUserId] = 2
+      ORDER BY [s].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[LoanId], [l].[AccountId], [l].[ApprovedAmount], [l].[CreatedAt], [l].[DisbursedAt], [l].[EMIAmount], [l].[InterestRate], [l].[LoanType], [l].[Purpose], [l].[RejectionReason], [l].[RequestedAmount], [l].[ReviewedAt], [l].[ReviewedByUserId], [l].[Status], [l].[TenureMonths], [l].[UpdatedAt], [l].[UserId]
+      FROM [Loans] AS [l]
+      WHERE [l].[UserId] = 2
+      ORDER BY [l].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [s].[TicketId], [s].[AssignedToUserId], [s].[Category], [s].[CreatedAt], [s].[CreatedByUserId], [s].[Description], [s].[Priority], [s].[Resolution], [s].[ResolvedAt], [s].[Status], [s].[Subject], [s].[UpdatedAt], [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM [SupportTickets] AS [s]
+      INNER JOIN [Users] AS [u] ON [s].[CreatedByUserId] = [u].[UserId]
+      WHERE [s].[CreatedByUserId] = 2
+      ORDER BY [s].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 50), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (Size = 2000), @p5='?' (Size = 20), @p6='?' (Size = 2000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 20), @p9='?' (Size = 200), @p10='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [SupportTickets] ([AssignedToUserId], [Category], [CreatedAt], [CreatedByUserId], [Description], [Priority], [Resolution], [ResolvedAt], [Status], [Subject], [UpdatedAt])
+      OUTPUT INSERTED.[TicketId]
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Boolean), @p2='?' (Size = 2000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (Size = 200), @p7='?' (Size = 50), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [Notifications] ([CreatedAt], [IsRead], [Message], [ReadAt], [RelatedEntityId], [RelatedEntityType], [Title], [Type], [UserId])
+      OUTPUT INSERTED.[NotificationId]
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [s].[TicketId], [s].[AssignedToUserId], [s].[Category], [s].[CreatedAt], [s].[CreatedByUserId], [s].[Description], [s].[Priority], [s].[Resolution], [s].[ResolvedAt], [s].[Status], [s].[Subject], [s].[UpdatedAt], [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM [SupportTickets] AS [s]
+      INNER JOIN [Users] AS [u] ON [s].[CreatedByUserId] = [u].[UserId]
+      WHERE [s].[CreatedByUserId] = 2
+      ORDER BY [s].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (14ms) [Parameters=[@__p_1='?' (DbType = Int32), @__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(@__p_1) [n].[NotificationId], [n].[Title], [n].[Message], [n].[Type], COALESCE([n].[IsRead], CAST(0 AS bit)) AS [IsRead], [n].[RelatedEntityId], [n].[RelatedEntityType], [n].[CreatedAt]
+      FROM [Notifications] AS [n]
+      WHERE [n].[UserId] = @__userId_0
+      ORDER BY [n].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM [Users] AS [u]
+      WHERE [u].[UserId] = @__userId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[@__ToLower_0='?' (Size = 150)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt], [r].[RoleId], [r].[CreatedAt], [r].[Description], [r].[IsActive], [r].[RoleName]
+      FROM [Users] AS [u]
+      INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+      WHERE LOWER([u].[Email]) = @__ToLower_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[@p20='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (Size = 100), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Date), @p5='?' (Size = 150), @p6='?' (DbType = Int32), @p7='?' (Size = 100), @p8='?' (Size = 10), @p9='?' (DbType = Boolean), @p10='?' (DbType = Boolean), @p11='?' (DbType = Boolean), @p12='?' (Size = 20), @p13='?' (DbType = DateTime2), @p14='?' (Size = 100), @p15='?' (Size = 30), @p16='?' (Size = 512), @p17='?' (Size = 20), @p18='?' (DbType = Int32), @p19='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      UPDATE [Users] SET [Address] = @p0, [City] = @p1, [Country] = @p2, [CreatedAt] = @p3, [DateOfBirth] = @p4, [Email] = @p5, [FailedLoginAttempts] = @p6, [FirstName] = @p7, [Gender] = @p8, [IsActive] = @p9, [IsEmailVerified] = @p10, [IsFrozen] = @p11, [KycStatus] = @p12, [LastLoginAt] = @p13, [LastName] = @p14, [NationalId] = @p15, [PasswordHash] = @p16, [PhoneNumber] = @p17, [RoleId] = @p18, [UpdatedAt] = @p19
+      OUTPUT 1
+      WHERE [UserId] = @p20;
+info: SmartBank.API.Services.AuthService[0]
+      User logged in: admin@smartbank.com
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Users] AS [u]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Users] AS [u]
+      WHERE [u].[IsFrozen] = CAST(1 AS bit)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Loans] AS [l]
+      WHERE [l].[Status] = N'Pending'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [SupportTickets] AS [s]
+      WHERE [s].[Status] <> N'Closed' OR [s].[Status] IS NULL
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(SUM([a].[Balance]), 0.0)
+      FROM [Accounts] AS [a]
+fail: Microsoft.EntityFrameworkCore.Database.Command[20102]
+      Failed executing DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [v].[CurrentAccounts], [v].[Email], [v].[FullName], [v].[IsActive], [v].[IsFrozen], [v].[KycStatus], [v].[PhoneNumber], [v].[SavingsAccounts], [v].[TotalAccounts], [v].[TotalBalance], [v].[UserId]
+      FROM [vw_CustomerAccountSummary] AS [v]
+      ORDER BY [v].[FullName]
+fail: Microsoft.EntityFrameworkCore.Query[10100]
+      An exception occurred while iterating over the results of a query for context type 'SmartBank.Data.Context.SmartOnlineBankingDbContext'.
+      Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'vw_CustomerAccountSummary'.
+         at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+         at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+      --- End of stack trace from previous location ---
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+         at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+      --- End of stack trace from previous location ---
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+      ClientConnectionId:313b319c-754e-42f5-a3ad-1fa90a51311d
+      Error Number:208,State:1,Class:16
+      Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'vw_CustomerAccountSummary'.
+         at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+         at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+      --- End of stack trace from previous location ---
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+         at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+      --- End of stack trace from previous location ---
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+      ClientConnectionId:313b319c-754e-42f5-a3ad-1fa90a51311d
+      Error Number:208,State:1,Class:16
+fail: SmartBank.API.Middleware.GlobalExceptionMiddleware[0]
+      Unhandled exception caught by middleware.
+      Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'vw_CustomerAccountSummary'.
+         at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+         at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+      --- End of stack trace from previous location ---
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+         at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+      --- End of stack trace from previous location ---
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+         at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+         at SmartBank.API.Controllers.AdminController.Users() in D:\project\SmartBankSystem\SmartBank.API\Controllers\AdminController.cs:line 43
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+         at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+         at SmartBank.API.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in D:\project\SmartBankSystem\SmartBank.API\Middleware\GlobalExceptionMiddleware.cs:line 21
+      ClientConnectionId:313b319c-754e-42f5-a3ad-1fa90a51311d
+      Error Number:208,State:1,Class:16
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[LoanId], [l].[AccountId], [l].[ApprovedAmount], [l].[CreatedAt], [l].[DisbursedAt], [l].[EMIAmount], [l].[InterestRate], [l].[LoanType], [l].[Purpose], [l].[RejectionReason], [l].[RequestedAmount], [l].[ReviewedAt], [l].[ReviewedByUserId], [l].[Status], [l].[TenureMonths], [l].[UpdatedAt], [l].[UserId], [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM [Loans] AS [l]
+      INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[UserId]
+      ORDER BY [l].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (13ms) [Parameters=[@__request_LoanId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [l].[LoanId], [l].[AccountId], [l].[ApprovedAmount], [l].[CreatedAt], [l].[DisbursedAt], [l].[EMIAmount], [l].[InterestRate], [l].[LoanType], [l].[Purpose], [l].[RejectionReason], [l].[RequestedAmount], [l].[ReviewedAt], [l].[ReviewedByUserId], [l].[Status], [l].[TenureMonths], [l].[UpdatedAt], [l].[UserId], [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM [Loans] AS [l]
+      INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[UserId]
+      WHERE [l].[LoanId] = @__request_LoanId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[@p7='?' (DbType = Int32), @p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (Precision = 5) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (Size = 20), @p6='?' (DbType = DateTime2), @p8='?' (DbType = DateTime2), @p9='?' (DbType = Boolean), @p10='?' (Size = 2000), @p11='?' (DbType = DateTime2), @p12='?' (DbType = Int32), @p13='?' (Size = 50), @p14='?' (Size = 200), @p15='?' (Size = 50), @p16='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      UPDATE [Loans] SET [ApprovedAmount] = @p0, [EMIAmount] = @p1, [InterestRate] = @p2, [ReviewedAt] = @p3, [ReviewedByUserId] = @p4, [Status] = @p5, [UpdatedAt] = @p6
+      OUTPUT 1
+      WHERE [LoanId] = @p7;
+      INSERT INTO [Notifications] ([CreatedAt], [IsRead], [Message], [ReadAt], [RelatedEntityId], [RelatedEntityType], [Title], [Type], [UserId])
+      OUTPUT INSERTED.[NotificationId]
+      VALUES (@p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[LoanId], [l].[AccountId], [l].[ApprovedAmount], [l].[CreatedAt], [l].[DisbursedAt], [l].[EMIAmount], [l].[InterestRate], [l].[LoanType], [l].[Purpose], [l].[RejectionReason], [l].[RequestedAmount], [l].[ReviewedAt], [l].[ReviewedByUserId], [l].[Status], [l].[TenureMonths], [l].[UpdatedAt], [l].[UserId], [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM [Loans] AS [l]
+      INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[UserId]
+      ORDER BY [l].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [s].[TicketId], [s].[AssignedToUserId], [s].[Category], [s].[CreatedAt], [s].[CreatedByUserId], [s].[Description], [s].[Priority], [s].[Resolution], [s].[ResolvedAt], [s].[Status], [s].[Subject], [s].[UpdatedAt], [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM [SupportTickets] AS [s]
+      INNER JOIN [Users] AS [u] ON [s].[CreatedByUserId] = [u].[UserId]
+      ORDER BY [s].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[TicketId], [s].[AssignedToUserId], [s].[Category], [s].[CreatedAt], [s].[CreatedByUserId], [s].[Description], [s].[Priority], [s].[Resolution], [s].[ResolvedAt], [s].[Status], [s].[Subject], [s].[UpdatedAt]
+      FROM [SupportTickets] AS [s]
+      WHERE [s].[TicketId] = @__p_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Boolean), @p2='?' (Size = 2000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (Size = 200), @p7='?' (Size = 50), @p8='?' (DbType = Int32), @p14='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Size = 2000), @p11='?' (DbType = DateTime2), @p12='?' (Size = 20), @p13='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      INSERT INTO [Notifications] ([CreatedAt], [IsRead], [Message], [ReadAt], [RelatedEntityId], [RelatedEntityType], [Title], [Type], [UserId])
+      OUTPUT INSERTED.[NotificationId]
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+      UPDATE [SupportTickets] SET [AssignedToUserId] = @p9, [Resolution] = @p10, [ResolvedAt] = @p11, [Status] = @p12, [UpdatedAt] = @p13
+      OUTPUT 1
+      WHERE [TicketId] = @p14;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [s].[TicketId], [s].[AssignedToUserId], [s].[Category], [s].[CreatedAt], [s].[CreatedByUserId], [s].[Description], [s].[Priority], [s].[Resolution], [s].[ResolvedAt], [s].[Status], [s].[Subject], [s].[UpdatedAt], [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM [SupportTickets] AS [s]
+      INNER JOIN [Users] AS [u] ON [s].[CreatedByUserId] = [u].[UserId]
+      ORDER BY [s].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt], [a].[AccountId], [a].[AccountNumber], [a].[AccountType], [a].[Balance], [a].[BranchCode], [a].[ClosedAt], [a].[Currency], [a].[IFSCCode], [a].[InterestRate], [a].[MinimumBalance], [a].[OpenedAt], [a].[RowVersion], [a].[Status], [a].[UpdatedAt], [a].[UserId]
+      FROM [Users] AS [u]
+      LEFT JOIN [Accounts] AS [a] ON [u].[UserId] = [a].[UserId]
+      ORDER BY [u].[FirstName], [u].[UserId]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (30ms) [Parameters=[@__p_1='?' (DbType = Int32), @__accountIds_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(@__p_1) [t].[TransactionId], [t].[AccountId], [t].[Amount], [t].[BalanceAfter], [t].[BalanceBefore], [t].[Channel], [t].[CreatedAt], [t].[Description], [t].[DeviceInfo], [t].[IPAddress], [t].[PerformedByUserId], [t].[ReferenceNumber], [t].[Status], [t].[TransactionType], [t].[TransferId]
+      FROM [Transactions] AS [t]
+      WHERE [t].[AccountId] IN (
+          SELECT [a].[value]
+          FROM OPENJSON(@__accountIds_0) WITH ([value] int '$') AS [a]
+      )
+      ORDER BY [t].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__user_UserId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[LoanId], COALESCE([l].[LoanType], N'') AS [LoanType], [l].[RequestedAmount], [l].[ApprovedAmount], [l].[InterestRate], [l].[TenureMonths], [l].[EMIAmount] AS [Emiamount], COALESCE([l].[Status], N'Pending') AS [Status], [l].[Purpose], [l].[RejectionReason], [l].[CreatedAt], [l].[ReviewedAt]
+      FROM [Loans] AS [l]
+      WHERE [l].[UserId] = @__user_UserId_0
+      ORDER BY [l].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__user_UserId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [s].[TicketId], [s].[CreatedByUserId], [s].[Subject], [s].[Description], [s].[Category], COALESCE([s].[Priority], N'Normal') AS [Priority], COALESCE([s].[Status], N'Open') AS [Status], [s].[Resolution], [s].[CreatedAt], [s].[UpdatedAt], [s].[ResolvedAt]
+      FROM [SupportTickets] AS [s]
+      WHERE [s].[CreatedByUserId] = @__user_UserId_0
+      ORDER BY [s].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__accountIds_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(@__p_1) [t].[TransactionId], [t].[AccountId], [t].[Amount], [t].[BalanceAfter], [t].[BalanceBefore], [t].[Channel], [t].[CreatedAt], [t].[Description], [t].[DeviceInfo], [t].[IPAddress], [t].[PerformedByUserId], [t].[ReferenceNumber], [t].[Status], [t].[TransactionType], [t].[TransferId]
+      FROM [Transactions] AS [t]
+      WHERE [t].[AccountId] IN (
+          SELECT [a].[value]
+          FROM OPENJSON(@__accountIds_0) WITH ([value] int '$') AS [a]
+      )
+      ORDER BY [t].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__user_UserId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[LoanId], COALESCE([l].[LoanType], N'') AS [LoanType], [l].[RequestedAmount], [l].[ApprovedAmount], [l].[InterestRate], [l].[TenureMonths], [l].[EMIAmount] AS [Emiamount], COALESCE([l].[Status], N'Pending') AS [Status], [l].[Purpose], [l].[RejectionReason], [l].[CreatedAt], [l].[ReviewedAt]
+      FROM [Loans] AS [l]
+      WHERE [l].[UserId] = @__user_UserId_0
+      ORDER BY [l].[CreatedAt] DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__user_UserId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [s].[TicketId], [s].[CreatedByUserId], [s].[Subject], [s].[Description], [s].[Category], COALESCE([s].[Priority], N'Normal') AS [Priority], COALESCE([s].[Status], N'Open') AS [Status], [s].[Resolution], [s].[CreatedAt], [s].[UpdatedAt], [s].[ResolvedAt]
+      FROM [SupportTickets] AS [s]
+      WHERE [s].[CreatedByUserId] = @__user_UserId_0
+      ORDER BY [s].[CreatedAt] DESC
+fail: Microsoft.EntityFrameworkCore.Database.Command[20102]
+      Failed executing DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [v].[CurrentAccounts], [v].[Email], [v].[FullName], [v].[IsActive], [v].[IsFrozen], [v].[KycStatus], [v].[PhoneNumber], [v].[SavingsAccounts], [v].[TotalAccounts], [v].[TotalBalance], [v].[UserId]
+      FROM [vw_CustomerAccountSummary] AS [v]
+      ORDER BY [v].[FullName]
+fail: Microsoft.EntityFrameworkCore.Query[10100]
+      An exception occurred while iterating over the results of a query for context type 'SmartBank.Data.Context.SmartOnlineBankingDbContext'.
+      Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'vw_CustomerAccountSummary'.
+         at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+      --- End of stack trace from previous location ---
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+         at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+      --- End of stack trace from previous location ---
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+      ClientConnectionId:313b319c-754e-42f5-a3ad-1fa90a51311d
+      Error Number:208,State:1,Class:16
+      Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'vw_CustomerAccountSummary'.
+         at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+      --- End of stack trace from previous location ---
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+         at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+      --- End of stack trace from previous location ---
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+      ClientConnectionId:313b319c-754e-42f5-a3ad-1fa90a51311d
+      Error Number:208,State:1,Class:16
+fail: SmartBank.API.Middleware.GlobalExceptionMiddleware[0]
+      Unhandled exception caught by middleware.
+      Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'vw_CustomerAccountSummary'.
+         at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+      --- End of stack trace from previous location ---
+         at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+         at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+      --- End of stack trace from previous location ---
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+         at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+         at SmartBank.API.Controllers.AdminController.Users() in D:\project\SmartBankSystem\SmartBank.API\Controllers\AdminController.cs:line 43
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+         at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+         at SmartBank.API.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in D:\project\SmartBankSystem\SmartBank.API\Middleware\GlobalExceptionMiddleware.cs:line 21
+      ClientConnectionId:313b319c-754e-42f5-a3ad-1fa90a51311d
+      Error Number:208,State:1,Class:16
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[UserId], [u].[Address], [u].[City], [u].[Country], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[FailedLoginAttempts], [u].[FirstName], [u].[Gender], [u].[IsActive], [u].[IsEmailVerified], [u].[IsFrozen], [u].[KycStatus], [u].[LastLoginAt], [u].[LastName], [u].[NationalId], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [u].[UpdatedAt]
+      FROM [Users] AS [u]
+      WHERE [u].[UserId] = @__userId_0

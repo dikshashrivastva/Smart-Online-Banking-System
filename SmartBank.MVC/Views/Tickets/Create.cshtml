@@ -1,0 +1,52 @@
+@model SmartBank.Models.DTOs.Service.TicketCreateRequestDto
+@{
+    ViewData["Title"] = "Raise Ticket";
+}
+
+<section class="data-card transaction-card">
+    <span class="auth-badge"><i class="bi bi-headset"></i></span>
+    <h2>Raise Ticket</h2>
+    <p class="subtitle">Send your issue to the admin team.</p>
+
+    <form asp-action="Create" method="post" class="row g-3 mt-2">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="col-md-8">
+            <label asp-for="Subject" class="form-label">Subject</label>
+            <input asp-for="Subject" class="form-control" />
+            <span asp-validation-for="Subject" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="Priority" class="form-label">Priority</label>
+            <select asp-for="Priority" class="form-select">
+                <option>Normal</option>
+                <option>High</option>
+                <option>Low</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Category" class="form-label">Category</label>
+            <select asp-for="Category" class="form-select">
+                <option>Account</option>
+                <option>Transaction</option>
+                <option>Loan</option>
+                <option>Login</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label asp-for="Description" class="form-label">Description</label>
+            <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="col-12 d-flex gap-2">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-send me-2"></i>Create Ticket</button>
+            <a asp-action="Status" class="btn btn-outline-primary">View Tickets</a>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
