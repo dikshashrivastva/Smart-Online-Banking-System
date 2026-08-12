@@ -37,7 +37,6 @@ SmartBank/
     └── appsettings.json
 ```
 
-## Sprint 1 APIs
 
 | Method | Endpoint              | Auth   | Description                  |
 |--------|-----------------------|--------|------------------------------|
@@ -99,7 +98,7 @@ Copy the returned `token` → click **Authorize** in Swagger → paste `Bearer <
 
 Then test `GET /api/auth/me` — should return 200 with your user info.
 
-## Sprint 1 Done Checklist
+## Checklist
 - [x] Register API (`POST /api/auth/register`)
 - [x] Login API (`POST /api/auth/login`)
 - [x] JWT token generation with role claims
