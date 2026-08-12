@@ -1,4 +1,4 @@
-# SmartBank – Sprint 1: Authentication & Security
+# SmartBank 
 
 ## Project Structure
 
